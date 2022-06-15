@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Les tableaux en HTML</title>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main>
+        <h1>Les tableaux en HTML</h1>
+        <!-- Déclaration d'un tableau -->
+        <table>
+            <!-- Afficher un titre pour le tableau -->
+            <caption>Sans Border Collapse</caption>
+            <!-- En-tete : nom des colonnes du tableau -->
+            <thead>
+                <th></th> <!-- Collone sans nom -->
+                <th>Titre colonne 1</th> <!-- Colonne avec nom -->
+                <th>Titre colonne 2</th> <!-- Colonne avec nom -->
+                <th>Titre colonne 3</th> <!-- Colonne avec nom -->
+            </thead>
+            <!-- tr = Nouvelle ligne-->
+            <tr>
+                <th>Mon Nom Ligne1</th> <!-- Etiquette Nom ligne 1-->
+                <td>Ma cellule 1-1</td> <!-- Valeur de cellule-->
+                <td>Ma cellule 1-2</td> <!-- Valeur de cellule-->
+                <td>Ma cellule 1-3</td> <!-- Valeur de cellule-->
+            </tr>
+            <tr>
+                <th>Mon Nom Ligne2</th>
+                <td>Ma cellule 2-1</td>
+                <td>Ma cellule 2-2</td>
+                <td>Ma cellule 2-3</td>
+            </tr>
+        </table>
+        <!-- Déclaration d'un tableau -->
+        <table class="bdCollapse">
+            <!-- Afficher un titre pour le tableau -->
+            <caption>Avec Border Collapse</caption>
+            <!-- En-tete : nom des colonnes du tableau -->
+            <thead>
+                <th></th> <!-- Collone sans nom -->
+                <th>Titre colonne 1</th> <!-- Colonne avec nom -->
+                <th>Titre colonne 2</th> <!-- Colonne avec nom -->
+                <th>Titre colonne 3</th> <!-- Colonne avec nom -->
+            </thead>
+            <!-- tr = Nouvelle ligne-->
+            <tr>
+                <th>Mon Nom Ligne1</th> <!-- Etiquette Nom ligne 1-->
+                <td>Ma cellule 1-1</td> <!-- Valeur de cellule-->
+                <td>Ma cellule 1-2</td> <!-- Valeur de cellule-->
+                <td>Ma cellule 1-3</td> <!-- Valeur de cellule-->
+            </tr>
+            <tr>
+                <th>Mon Nom Ligne2</th>
+                <td>Ma cellule 2-1</td>
+                <td>Ma cellule 2-2</td>
+                <td>Ma cellule 2-3</td>
+            </tr>
+        </table>
+        <!-- Déclaration d'un tableau -->
+        <table class="dashed">
+            <!-- Afficher un titre pour le tableau -->
+            <caption>Avec des borders differents (dashed)</caption>
+            <!-- En-tete : nom des colonnes du tableau -->
+            <thead>
+                <th></th> <!-- Collone sans nom -->
+                <th>Titre colonne 1</th> <!-- Colonne avec nom -->
+                <th>Titre colonne 2</th> <!-- Colonne avec nom -->
+                <th>Titre colonne 3</th> <!-- Colonne avec nom -->
+            </thead>
+            <!-- tr = Nouvelle ligne-->
+            <tr class="dashed">
+                <th>Mon Nom Ligne1</th> <!-- Etiquette Nom ligne 1-->
+                <td>Ma cellule 1-1</td> <!-- Valeur de cellule-->
+                <td>Ma cellule 1-2</td> <!-- Valeur de cellule-->
+                <td>Ma cellule 1-3</td> <!-- Valeur de cellule-->
+            </tr>
+            <tr>
+                <th>Mon Nom Ligne2</th>
+                <td>Ma cellule 2-1</td>
+                <td>Ma cellule 2-2</td>
+                <td>Ma cellule 2-3</td>
+            </tr>
+        </table>
+        </table>
+        <!-- Déclaration d'un tableau -->
+        <table class="dotted">
+            <!-- Afficher un titre pour le tableau -->
+            <caption>Avec des borders differents (dotted)</caption>
+            <!-- En-tete : nom des colonnes du tableau -->
+            <thead>
+                <th></th> <!-- Collone sans nom -->
+                <th>Titre colonne 1</th> <!-- Colonne avec nom -->
+                <th>Titre colonne 2</th> <!-- Colonne avec nom -->
+                <th>Titre colonne 3</th> <!-- Colonne avec nom -->
+            </thead>
+            <!-- tr = Nouvelle ligne-->
+            <tr class="dotted">
+                <th>Mon Nom Ligne1</th> <!-- Etiquette Nom ligne 1-->
+                <td>Ma cellule 1-1</td> <!-- Valeur de cellule-->
+                <td>Ma cellule 1-2</td> <!-- Valeur de cellule-->
+                <td>Ma cellule 1-3</td> <!-- Valeur de cellule-->
+            </tr>
+            <tr>
+                <th>Mon Nom Ligne2</th>
+                <td>Ma cellule 2-1</td>
+                <td>Ma cellule 2-2</td>
+                <td>Ma cellule 2-3</td>
+            </tr>
+        </table>
+        <!-- Déclaration d'un tableau -->
+        <table class="double">
+            <!-- Afficher un titre pour le tableau -->
+            <caption>Avec des borders differents (double)</caption>
+            <!-- En-tete : nom des colonnes du tableau -->
+            <thead>
+                <th></th> <!-- Colone sans nom -->
+                <th>Titre colonne 1</th> <!-- Colonne avec nom -->
+                <th>Titre colonne 2</th> <!-- Colonne avec nom -->
+                <th>Titre colonne 3</th> <!-- Colonne avec nom -->
+            </thead>
+            <!-- tr = Nouvelle ligne-->
+            <tr class="double">
+                <th>Mon Nom Ligne1</th> <!-- Etiquette Nom ligne 1-->
+                <td>Ma cellule 1-1</td> <!-- Valeur de cellule-->
+                <td>Ma cellule 1-2</td> <!-- Valeur de cellule-->
+                <td>Ma cellule 1-3</td> <!-- Valeur de cellule-->
+            </tr>
+            <tr>
+                <th>Mon Nom Ligne2</th>
+                <td>Ma cellule 2-1</td>
+                <td>Ma cellule 2-2</td>
+                <td>Ma cellule 2-3</td>
+            </tr>
+        </table>
+    </table>
+    <!-- Déclaration d'un tableau -->
+    <table class="ridge">
+        <!-- Afficher un titre pour le tableau -->
+        <caption>Avec des borders differents (ridge)</caption>
+        <!-- En-tete : nom des colonnes du tableau -->
+        <thead>
+            <th></th> <!-- Collone sans nom -->
+            <th>Titre colonne 1</th> <!-- Colonne avec nom -->
+            <th>Titre colonne 2</th> <!-- Colonne avec nom -->
+            <th>Titre colonne 3</th> <!-- Colonne avec nom -->
+        </thead>
+        <!-- tr = Nouvelle ligne-->
+        <tr class="ridge">
+            <th>Mon Nom Ligne1</th> <!-- Etiquette Nom ligne 1-->
+            <td>Ma cellule 1-1</td> <!-- Valeur de cellule-->
+            <td>Ma cellule 1-2</td> <!-- Valeur de cellule-->
+            <td>Ma cellule 1-3</td> <!-- Valeur de cellule-->
+        </tr>
+        <tr>
+            <th>Mon Nom Ligne2</th>
+            <td>Ma cellule 2-1</td>
+            <td>Ma cellule 2-2</td>
+            <td>Ma cellule 2-3</td>
+        </tr>
+    </table>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>

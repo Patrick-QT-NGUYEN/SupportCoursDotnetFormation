@@ -1,0 +1,37 @@
+h1{
+    color: blue;
+}
+
+li{
+    /* Avec ou sans selection de la puce inside | outside */
+    list-style-position: outside;
+}
+
+.styleType{
+    /* Modifie l'icone avec un icone pris en charge*/
+    list-style-type:lower-alpha;    
+}
+.styleType1{
+    /* Modifie l'icone avec un icone pris en charge*/
+    list-style-type: circle;    
+}
+.styleType2{
+    /* Modifie l'icone avec un icone pris en charge*/
+    list-style-type:armenian;    
+}
+.styleType3{
+    /* Modifie l'icone avec un icone pris en charge*/
+    list-style-type:lower-roman;    
+}
+
+.styleImage1{
+    list-style-image: url(./img/puce_orange_1.png);
+}
+
+.styleImage2{
+    list-style-image: url(./img/puce_rouge_1.png);
+}
+
+.styleImage3{
+    list-style-image: url(./img/puce_verte_1.png);
+}

@@ -1,0 +1,75 @@
+body{
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.titre{
+    color:#454545;
+}
+
+header{
+    background-color: blueviolet;
+    width: 100%;
+    height: 100px;    
+    display: flex;
+    justify-content:center;
+    align-items: center;    
+}
+nav{
+    background-color: blue;
+    display: flex;
+    justify-content:center;
+    align-items: center; 
+    padding: 6px;   
+}
+main{
+    background-color: pink;    
+    padding: 8px;
+}
+footer{
+    background-color: gray;
+    display: flex;
+    justify-content:center;
+    align-items: center; 
+    padding: 20px;   
+}
+.containerPrincipal{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2, 300px);
+    gap: 5px;
+    background-color: white;
+    padding: 2px;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2px;
+}
+.contenu1{
+    background-color: red;
+    display: flex;
+    justify-content:center;
+    align-items: center; 
+}
+.contenu2{
+    background-color: rgb(255, 208, 0);
+    display: flex;
+    justify-content:center;
+    align-items: center; 
+}
+
+.contenu3{
+    background-color: green;
+    display: flex;
+    justify-content:center;
+    align-items: center; 
+}
+.contenu4{
+    background-color: brown;
+    display: flex;
+    justify-content:center;
+    align-items: center; 
+}

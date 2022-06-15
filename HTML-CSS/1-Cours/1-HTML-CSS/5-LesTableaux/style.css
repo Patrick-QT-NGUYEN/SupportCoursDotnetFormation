@@ -1,0 +1,48 @@
+body {
+    text-align: center;
+}
+
+caption {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+table {
+    border: 1px solid #454545;
+    margin-bottom: 25px;
+}
+
+th {
+    border: 1px solid #454545;
+    background-color: #454545;
+    color: white;
+    padding: 5px;
+}
+
+td { 
+    border: 1px solid #454545;
+    background-color: lightgray;
+}
+
+.bdCollapse{
+    border-collapse: collapse;
+}
+
+.dashed{
+    border-collapse: collapse;
+    border: 3px dashed red;
+}
+.dotted{
+    border-collapse: collapse;
+    border: 3px dotted blueviolet;
+}
+.double{
+    border: 6px double green;
+}
+
+.ridge{
+    border-collapse: collapse;
+    border: 3px ridge orangered;
+    /* Centrer Tableau*/
+    margin: auto;
+}

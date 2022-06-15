@@ -1,0 +1,56 @@
+h1 {
+    color: blue;
+}
+
+.titre {
+    color: orangered;
+}
+
+#TitrePrincipale {
+    color: purple;
+}
+
+.Left {
+    text-align: left;
+}
+
+.Center {
+    text-align: center;
+    color: blue;
+}
+
+.Justify {
+    text-align: justify;
+}
+
+.Right {
+    text-align: right;
+}
+body .deux{
+    background-color: #A6D676;
+}
+.carre{
+    width: 150px;
+    height :150px;
+    background-color: gray;
+    margin: 10px auto;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    /* border: 3px dotted rgb(45, 45, 45); */
+    border: 3px solid rgb(45, 45, 45);
+    border-radius: 90px ;
+}
+
+.une{
+    background-color: #D676BF ;
+}
+.trois{
+    background-color: #FF8700;
+}
+.quatre{
+    background-color: #FF0000;
+}
+.cinq{
+    background-color: #00FFF0;
+}

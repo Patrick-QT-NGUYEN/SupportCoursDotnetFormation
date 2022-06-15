@@ -1,0 +1,4 @@
+Faire un site comprenant 3 pages:
+    - Page Accueil => un tableau avec votre emploi du temps de la semaine
+    - Page CV => Votre CV en version HTML avec un liens pour le télécharger en pdf
+    - Page About => Infos pour vous contacter

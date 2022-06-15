@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Les Formulaires en HTML</title>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main>
+        <h1>Les Formulaires</h1>
+        <div class="container">
+            <form>
+                <fieldset>
+                    <legend> Formulaire </legend>
+                    <!-- Input type Radio (Selection unique) -->
+                    <div class="space">
+                        <label>
+                            Mr
+                            <input type="radio" value="Mr" name="genre" />
+                        </label>
+                        <label>
+                            Mme
+                            <input type="radio" value="Mme" name="genre" checked />
+                        </label>
+    
+                        <label>
+                            Mlle
+                            <input type="radio" value="Mlle" name="genre" />
+                        </label>
+                    </div>
+                    <!-- Input type Text -->
+                    <div class="space">
+                        <label for="Nom">Nom :</label>
+                        <input type="text" placeholder="Nom" name="Nom" />
+                    </div>
+                    <div class="space">
+                        <label for="Prenom">Prénom : </label>
+                        <input type="text" placeholder="Prénom" name="Prenom" />
+                    </div>
+                    <!-- Input type Date (datepicker) -->
+                    <div class="space">
+                        <label for="Date">Date</label>
+                        <input type="date" name="Date" />
+                    </div>
+                    <!-- Input type Password -->
+                    <div class="space">
+                        <label for="Password">Password : </label>
+                        <input type="password" name="Password" />
+                    </div>
+                    <!-- Input type Checkbox (Séléction multiple) -->
+                    <div class="space">
+                        <label>
+                            Java
+                            <input type="checkbox" value="java" name="java" />
+                        </label>
+                        <label>
+                            C#
+                            <input type="checkbox" value="csharp" name="csharp" checked />
+                        </label>
+    
+                        <label>
+                            JS
+                            <input type="checkbox" value="js" name="js" />
+                        </label>
+                    </div>
+                    <!-- Autre checkbox avec CSS -->
+                    <div class="space">
+                        <label>Maitrisez-vous le C#?</label>
+                        <label class="ck_label">
+                            <input type="checkbox" name="ch1" class="btn_chb">
+                            <span id="snon">NON</span>
+                            <span id="soui">OUI</span>
+                            <span id="round"></span>
+                        </label>
+                    </div>
+    
+                    <!-- Select pour un menu déroulant (choix unique) -->
+                    <div class="space">
+                        <label>Liste de villes</label>
+                        <select name="ville">
+                            <option disabled>Ville</option>
+                            <option value="lille">Lille</option>
+                            <option value="paris">Paris</option>
+                            <option value="lyon">Lyon</option>
+                            <option value="angers">Angers</option>
+                            <option value="tours">Tours</option>
+                        </select>
+                    </div>
+    
+                    <!-- Select pour un menu déroulant (choix multiple) -->
+                    <div class="space">
+                        <label>Choisissez votre ville et pays</label>
+                        <select name="villeMultiple" multiple>
+                            <optgroup label="Ville">
+                                <option value="lille">Lille</option>
+                                <option value="paris">Paris</option>
+                                <option value="lyon">Lyon</option>
+                                <option value="angers">Angers</option>
+                                <option value="tours">Tours</option>
+                            </optgroup>
+                            <optgroup label="Pays">
+                                <option value="France">France</option>
+                                <option value="Belgique">Belgique</option>
+                                <option value="Angleterre">Angleterre</option>
+                                <option value="Suisse">Suisse</option>
+                                <option value="Italie">Italie</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="space">
+                        <label for="Description">Veuillez faire une courte description</label>
+                        <textarea name="Description" cols="30" rows="10" placeholder="<div>Bonjour</div>" class="MyTextarea"></textarea>
+                    </div>
+                    <!-- Pour l'afichage des chevrons -->
+                    <span>&lt;div&gt;bonjour&lt;/div&gt;</span>
+
+                    <div class="space">
+                        <input type="submit" value="Valider"/>
+                        <button type="reset">Annuler</button>
+                    </div>
+                        
+                </fieldset>
+            </form>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>

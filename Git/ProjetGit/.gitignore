@@ -1,0 +1,5 @@
+# Dossier contenant des éléments sensibles
+/testIgnore/*
+
+# J'ignore juste un fichier
+MonFichier.txt

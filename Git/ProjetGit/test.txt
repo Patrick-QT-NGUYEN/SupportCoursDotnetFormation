@@ -1,0 +1,5 @@
+fichier qui sera modifié et non ignoré
+
+qui est sur la branche main
+
+modif pour essayer de MAJ le dossier sur github

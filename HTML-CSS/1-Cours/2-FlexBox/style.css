@@ -1,0 +1,61 @@
+/*
+            PROPRIETES CSS FLEXBOX
+
+    display: flex|inline-flex
+
+            PROPRIETES CONTAINER
+
+    flex-direction: row|column|row-reverse|column-reverse
+    flex-wrap: nowrap|wrap|wrap-reverse
+    flex-flow: <direction> <wrap>
+
+    justify-content: flex-start|flex-end|center|space-between|space-around|space-evenly
+    align-items: flex-start|flex-end|center|stretch|baseline
+    order: <int>
+    
+    flex-grow: <int>
+    flex-shrink: <int>
+    flex-basis <length>
+    flex: <grow> <shrink> <basis>
+    flex: auto = flex: 1 1 0
+
+            PROPRIETES OBJET FLEX
+    align-self: flex-start|flex-end|center|stretch|baseline
+    
+*/
+
+body{
+    margin: auto;
+    background-color: aliceblue;
+    width: 100%;
+}
+
+.container{
+    background-color: aquamarine;
+    display: flex;
+    height: 200px;
+    align-items: center;
+    /* flex-wrap:wrap;    
+    flex-direction: column-reverse; */
+    flex-flow: row wrap;
+}
+
+.cont-item{
+    background-color: coral;
+    border: 1px solid rgb(64, 64, 64);
+    /* font-size: 30px;
+    padding: 10px; */
+}
+
+.spaced{
+    justify-content: space-around;
+}
+
+.order1{order: 1;}
+.order2{order: 2;}
+.order3{order: 3;}
+.order4{order: 4;}
+.order5{order: 5;}
+
+.obj1{align-self: flex-end;}
+.obj2{align-self: stretch;}

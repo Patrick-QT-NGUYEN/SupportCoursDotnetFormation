@@ -1,0 +1,49 @@
+body {
+    /* Allignement du texte */
+    text-align: center;
+    background-color: #454545;
+    background-image: url(https://www.akamai.com/site/im-demo/perceptual-standard.jpg?imbypass=true);
+}
+h1 {
+    /* Changer la couleur du texte */
+    color: blue;
+    /* Marge Supérieur */
+    margin-top: 60px;
+}
+
+.img {
+    /* Hauteur de l'image */
+    height: 100px;
+    /* Bordure de l'image */
+    border: 2px solid #454545;
+    /* Marge interrieur */
+    padding: 10px;
+    /* Arrondir les angles */
+    border-radius: 25px;
+}
+
+#parentBanniere {
+    height: 100px;
+    line-height: 100px;
+}
+
+#titreBanniere {
+    /* Taille de la police */
+    font-size: 25px;
+    /* Mettre la police en gras */
+    font-weight: bold;
+    /*Définit la taille de la ligne*/
+    line-height: 50px;
+}
+/* #backgroundImg {
+    background-image: url(https://www.akamai.com/site/im-demo/perceptual-standard.jpg?imbypass=true);
+    height: 1000px;
+} */
+#backgroundImg2 {
+    background-image: url(./img/logo-entreprise_m2i.jpg);
+    background-repeat:space;
+    height: 1000px;
+}
+.titre{
+    color:white;
+}

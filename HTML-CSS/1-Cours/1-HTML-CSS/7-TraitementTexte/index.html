@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Le traitement de texte en HTML</title>
+</head>
+
+<body>
+    <h1>Le traitement de texte en HTML</h1>
+    <span>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime minima ut, odio ex exercitationem dolores
+        corrupti veritatis fugit expedita dignissimos, pariatur ad? <br /><!-- Retour à la ligne  -->
+
+
+        <strong>Facere</strong>, sint <b>voluptatem</b> unde nemo eum, quidem <span class="myBold">quam ipsum laboriosam
+            eveniet</span> qui fuga maiores rem <span class="myItalic">sunt officiis et perferendis illo sed pariatur
+            odit</span>. lorum temporibus <i>ducimus</i> quasi nihil laborum, officia, sit, <em>explicabo doloribus</em>
+        amet iure alias fugit autem sed recusandae doloremque corporis quod deserunt natus itaque. Magni commodi omnis
+        recusandae eligendi eos, vitae ullam id minima voluptatem assumenda fuga odit ea.
+    </span>
+    <hr /> <!-- Pour faire un séparateur xhtml , pas html-->
+    <!-- del est une balise qui informe que l'information contenue sur la page n'est plus juste-->
+    <!-- ins va indiquer au navigateur la nouvelle valeur si connue -->
+    <p>
+        Il y a <del>800</del> <ins>980</ins> habitants dans cette ville.
+    </p>
+    <p>
+        <!-- s Indique au navigateur que l'information est incorrect -->
+        Il y a <s>800</s> habitants dans cette ville.
+    </p>
+
+    <pre>
+        <mark class="red">Lorem ipsum dolor sit amet</mark> consectetur adipisicing elit. Soluta iure voluptate eveniet quod ducimus recusandae sequi unde tempore fugiat cumque quam ad, perspiciatis pariatur quisquam non aperiam illo, enim minus dolor sit commodi praesentium dolores voluptatum. 
+        <span class="red">Vitae ab, autem placeat corrupti commodi ipsa eius cupiditate.</span> Iste asperiores iusto consequuntur, molestias qui debitis praesentium maxime quod modi error? Nostrum eaque, voluptatem impedit commodi, officia iure libero beatae quas quam quasi, nulla harum hic ipsum repudiandae minus nesciunt! 
+        Quia ipsum amet mollitia modi cupiditate explicabo necessitatibus aut excepturi distinctio sit! Quidem quod perspiciatis aliquam quae adipisci voluptatibus officia, dignissimos facilis iste excepturi soluta iure quas perferendis quasi. 
+        Ipsam, magni culpa nam autem laborum cupiditate error laboriosam, impedit, distinctio eos fuga unde dolorum ex mollitia necessitatibus accusantium ipsum aliquam nihil labore aliquid fugiat sequi.
+        Obcaecati amet, quo fugiat eos placeat harum culpa incidunt recusandae provident expedita quidem, vitae repellendus quia eligendi nam dolores!
+        
+    </pre>
+    <h2>Affichage de ligne de code (non interprétées)</h2>
+    <!-- Insertion de ligne de code en HTML (ne doit pas être interprété)-->
+    <pre>
+        <code>
+            if(age>18)
+            {
+                console.log("Vous êtes majeur!");
+            }
+        </code>
+    </pre>
+
+    <h2>texte caché (details)</h2>
+    <h3>
+        Voici la question que je vous pose?
+    </h3>
+    <details>
+        <summary>Voir la réponse</summary>
+        <p>
+            Voici la réponse!
+        </p>
+    </details>
+</body>
+
+</html>
