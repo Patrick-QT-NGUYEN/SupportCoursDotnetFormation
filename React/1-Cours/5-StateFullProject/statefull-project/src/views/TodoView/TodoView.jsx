@@ -1,5 +1,7 @@
 import { React, PureComponent } from 'react';
 import FormTodo from '../../components/FormTodoComponent/FormTodo';
+import Notification from '../../components/NotificationComponent/Notification';
+import TodoDisplay from '../../components/TodoDisplayComponent/TodoDisplay';
 
 class TodoView extends PureComponent {
     /**
@@ -56,8 +58,8 @@ class TodoView extends PureComponent {
     changeStatus = (id, newStatus) => {
         let tmpTodos = [];
         for (let todo of this.state.todos) {
-            if (todo.id === id) {
-                todo.status = newStatus
+            if (todo.id === id) {                
+                todo.status = newStatus               
             }
             tmpTodos.push(todo)
         }
@@ -70,11 +72,21 @@ class TodoView extends PureComponent {
         return (
             <div className='container'>
                 <h1>React ToDo List</h1>
-                {/* Composant pour ajouter des Todo */}
-                <FormTodo addTodo={this.addTodo}/>
+                {/* Composant pour ajouter des Todos */}
+                <FormTodo addTodo={this.addTodo} />
                 {/* Affichera des notifications sur le nombre de todo*/}
-
+                <Notification numberTask={this.state.todos.length} />
                 {/* Composant pour afficher les todos */}
+                {this.state.todos.map((todo, index) => {
+                    return (
+                        <TodoDisplay key={index}
+                            changeStatus={this.changeStatus}
+                            editTodo={this.editTodo}
+                            deleteTodo={this.deleteTodo}
+                            todo={todo}
+                        />
+                    )
+                })}
             </div>
         );
     }

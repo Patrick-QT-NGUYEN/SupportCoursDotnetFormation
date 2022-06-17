@@ -5,16 +5,16 @@ class FormTodo extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {
-            contentTask: undefined
+            contentTask: ""
         }
     }
 
     Submit = (e) => {
         e.preventDefault();
-        if (this.state.contentTask != undefined) {
+        if (this.state.contentTask !== "") {
             this.props.addTodo(this.state.contentTask);
             this.setState({
-                contentTask: undefined
+                contentTask: ""
             })
         }
     }
@@ -37,6 +37,7 @@ class FormTodo extends PureComponent {
                         onChange={this.ChangeTask}
                         className='form-control'
                         placeholder='Contenu de la Todo'
+                        value={this.state.contentTask}
                     />
                 </div>
                 <div className="col-3">
