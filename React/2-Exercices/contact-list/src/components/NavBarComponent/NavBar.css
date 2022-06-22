@@ -1,7 +1,13 @@
 .navBar{
     padding-top: 20px;
+    ;
 }
 
 .navBarBtn{
     margin: 0 10px;
+}
+.iconMenu{
+    margin: 0 15px;
+    color: rgb(40, 44, 52);
+    font-size: 35px;
 }
