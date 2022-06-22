@@ -1,0 +1,21 @@
+.chart {
+  display: flex;
+  justify-content: center;
+}
+
+.price-container {
+  display: flex;
+  justify-content: space-around;
+  align-Items: center;
+  width: 600;
+  height: 300;
+  margin: 20px 0;
+}
+.nav{
+  padding: 15px;
+  background-color: orangered;
+  color: white;
+}
+.titre{
+  margin:25px;
+}
