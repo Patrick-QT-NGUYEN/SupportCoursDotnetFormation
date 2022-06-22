@@ -56,10 +56,13 @@ class TodoView extends PureComponent {
     }
 
     changeStatus = (id, newStatus) => {
+        //console.log(newStatus);
         let tmpTodos = [];
         for (let todo of this.state.todos) {
-            if (todo.id === id) {                
+            if (todo.id === id) { 
+                //console.log(todo.status);               
                 todo.status = newStatus               
+                //console.log(todo.status);               
             }
             tmpTodos.push(todo)
         }
