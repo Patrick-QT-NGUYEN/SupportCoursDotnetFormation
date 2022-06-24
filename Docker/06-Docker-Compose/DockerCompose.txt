@@ -1,0 +1,40 @@
+## Docker Compose
+
+## Buildez ensuite votre image avec la commande suivante :
+$ docker build -t myapp .
+
+##créer le fichier docker-compose.yml puis executer la commande
+$ docker-compose up -d
+
+## verifier les conteneurs avec
+$ docker ps
+
+## Pour seulement lister les conteneurs du docker-compose.yml, il suffit d'exécuter la commande suivante 
+$ docker-compose ps
+
+## Si jamais vos conteneurs ne sont pas dans l'état UP, alors vérifiez les logs des services de votre Docker-Compose 
+## en tapant la commande suivante :
+$ docker-compose logs
+
+## Remplissez le formulaire de l'application, et tuez les conteneurs du docker-compose.yml, avec la commande suivante :
+$ docker-compose kill
+
+## Réactiver les conteneurs
+$ docker-compose start
+
+## Lister les adresse ip de nos conteneur
+$docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
+
+## Stopper les conteneurs du Docker Compose
+docker-compose stop
+
+## Autre commandes Docker-Compose
+
+## Arrêtez les conteneurs et supprimer les conteneurs, réseaux, volumes, et les images
+docker-compose down
+// -t ou --timeout : spécifier un timeout en seconde avant la suppression (par défaut : 10s)
+
+## Supprimer des conteneurs stoppés du Docker Compose
+docker-compose rm
+// -f ou --force : forcer la suppression
+
