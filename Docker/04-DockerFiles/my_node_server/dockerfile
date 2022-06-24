@@ -1,0 +1,31 @@
+# --------------- DÉBUT COUCHE OS -------------------
+FROM debian:latest
+# --------------- FIN COUCHE OS ---------------------
+
+
+# MÉTADONNÉES DE L'IMAGE
+LABEL version="1.0" maintainer="Anthony Di Persio <anthony@utopios.net>"
+
+
+
+# --------------- DÉBUT COUCHE NODE.JS ---------------
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
+    apt-get install -y nodejs && \
+    apt-get install npm -y 
+# --------------- FIN COUCHE NODE.JS -----------------
+
+# RÉPERTOIRE DE TRAVAIL
+WORKDIR  /home/web
+
+# Copier le dossier ou se trouve de dockerfile à l'interieur du conteneur
+COPY . .
+
+# OUVERTURE DU PORT HTTP
+EXPOSE 80
+
+# Execute install express
+RUN npm install express
+
+# DÉMARRAGE DES SERVICES LORS DE L'EXÉCUTION DE L'IMAGE
+CMD ["node", "index.js"]
