@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FormationCSharp", "FormationCSharp", "{A0D068F2-22D5-4F1B-80E1-461FE438D640}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cours", "Cours", "{A588CF7A-45FF-4BF4-93AB-F6CBFC3CD186}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercices", "Exercices", "{CBA64B39-A225-40AE-BAA1-8DD2D9F24408}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaConsole", "FormationCSharp\Cours\LaConsole\LaConsole.csproj", "{3B33B8CE-C6C6-4883-BA57-F5721F6FECB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SupportCours", "SupportCours", "{E8D9AF0F-E0BF-4B4B-A016-CBFDD10F2827}"
+	ProjectSection(SolutionItems) = preProject
+		00-SupportCours\Introduction_Framework_DotNet.pdf = 00-SupportCours\Introduction_Framework_DotNet.pdf
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LesTypesVariables", "FormationCSharp\Cours\LesTypesVariables\LesTypesVariables.csproj", "{23D73CC7-77B9-4EB3-9351-FD6DE4623767}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B33B8CE-C6C6-4883-BA57-F5721F6FECB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B33B8CE-C6C6-4883-BA57-F5721F6FECB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B33B8CE-C6C6-4883-BA57-F5721F6FECB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B33B8CE-C6C6-4883-BA57-F5721F6FECB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23D73CC7-77B9-4EB3-9351-FD6DE4623767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D73CC7-77B9-4EB3-9351-FD6DE4623767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D73CC7-77B9-4EB3-9351-FD6DE4623767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D73CC7-77B9-4EB3-9351-FD6DE4623767}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A588CF7A-45FF-4BF4-93AB-F6CBFC3CD186} = {A0D068F2-22D5-4F1B-80E1-461FE438D640}
+		{CBA64B39-A225-40AE-BAA1-8DD2D9F24408} = {A0D068F2-22D5-4F1B-80E1-461FE438D640}
+		{3B33B8CE-C6C6-4883-BA57-F5721F6FECB8} = {A588CF7A-45FF-4BF4-93AB-F6CBFC3CD186}
+		{23D73CC7-77B9-4EB3-9351-FD6DE4623767} = {A588CF7A-45FF-4BF4-93AB-F6CBFC3CD186}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {52E70217-1E4E-4382-B914-B9AADAA1EE88}
+	EndGlobalSection
+EndGlobal
