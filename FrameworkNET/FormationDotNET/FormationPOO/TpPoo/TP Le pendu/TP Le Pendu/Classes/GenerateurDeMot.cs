@@ -8,7 +8,7 @@ namespace TP_Le_Pendu.Classes
 {
     internal class GenerateurDeMot
     {
-        private string[] ListeMots = new string[] { "amazon", "google", "facebook", "uber", "anticonstitutionnellement", "dictonnaire", "instagram" };
+        private string[] ListeMots = new string[] { "amazon", "google", "facebook", "uber", "anticonstitutionnellement", "dictonnaire", "instagram","microsoft" };
 
         public string Generer()
         {

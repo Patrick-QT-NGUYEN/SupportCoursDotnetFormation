@@ -16,9 +16,14 @@ namespace TP_Le_Pendu.Classes
         public LePendu()
         {
             generateur = new();
-            NbEssai = 0;
+            NbEssai = 10;
             MotATrouve = generateur.Generer();
             Masque = GenererMasque();
+        }
+
+        public LePendu(int n):this()
+        {
+            NbEssai = n;   
         }
 
         public int NbEssai { get => nbEssai; set => nbEssai = value; }
@@ -32,7 +37,7 @@ namespace TP_Le_Pendu.Classes
             string masqueTmp = "";
             for (int i = 0; i < motATrouve.Length; i++)
             {
-                if (MotATrouve[i]==c)
+                if (motATrouve[i]==c)
                 {
                     found = true;
                     masqueTmp += c;
@@ -42,11 +47,13 @@ namespace TP_Le_Pendu.Classes
                     masqueTmp += masque[i];
                 }
             }
+
             masque = masqueTmp;
             if(!found)
             {
-                NbEssai++;
+                nbEssai--;
             }
+            
             return found;
 
 
@@ -54,8 +61,7 @@ namespace TP_Le_Pendu.Classes
 
         public bool TestWin()
         {
-
-            return (NbEssai > 0 && MotATrouve == Masque);
+            return (nbEssai > 0 && motATrouve == masque);
         }
 
         public string GenererMasque()
