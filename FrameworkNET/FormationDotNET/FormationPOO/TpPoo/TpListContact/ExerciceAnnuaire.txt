@@ -1,0 +1,22 @@
+Exercice
+
+Réaliser une application de gestion d'annuaire téléphonique => 
+
+Class Personne(id, firstname, lastname, dateOfBirth)
+
+Class Adresse(numero, rue,codePostal,Ville,Pays)
+
+Class Contact Hérite de Personne (Adresse adresse, téléphone, email)
+
+Class Annuaire (List<Contact> contacts)
+
+
+Créer l'IHM permettant de :
+
+1 - Ajouter un contact
+2 - Modifier un contact
+3 - Supprimer un contact
+4 - Rechercher un contact par son nom
+ 
+
+
