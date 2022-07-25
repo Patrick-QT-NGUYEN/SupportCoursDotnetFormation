@@ -89,5 +89,45 @@ Console.WriteLine($"L'element en place n° 2 de la pile est {pileVoiture.Get(1)}
 Console.WriteLine($"L'element en place n° 1 de la pile est {pileVoiture.Get(0)}");
 #endregion
 
+#region Les Dictionnaires 
+Console.WriteLine("***** Les Dictionnaires<T> *****");
+Console.WriteLine("Avec le type Personne : ");
+Dictionary<string, Personne> annuaire = new Dictionary<string, Personne>();
+annuaire.Add("06 01 02 03 04",new Personne { Prenom = "Nicolas" , Telephone= "06 01 02 03 04" });
+annuaire.Add("06 98 87 65 41",new Personne { Prenom = "Jeanne",Telephone = "06 98 87 65 41" });
+
+Personne p = annuaire["06 01 02 03 04"];
+Console.WriteLine(p);
+#endregion
+
+#region Les List<T>
+Console.WriteLine("***** Les List<T> *****");
+// INT
+Console.WriteLine("Avec le type INT : ");
+List<int> listeEntiers = new ();
+listeEntiers.Add(10);
+listeEntiers.Add(20);
+listeEntiers.Add(30);
+Console.WriteLine($"La liste contient {listeEntiers.Count} entiers");
+Console.WriteLine($"======== Contenu de la liste d'entiers ========");
+foreach (int i in listeEntiers)
+    Console.WriteLine(i);
+Console.WriteLine($"===============================================");
+
+// Voiture
+Console.WriteLine("Avec le type Voiture : ");
+List<Voiture> listeVoiture = new();
+listeVoiture.Add(new Voiture("ceed", "verte", 30, 800));
+listeVoiture.Add(new Voiture("kuga", "noir", 40, 900));
+listeVoiture.Add(new Voiture("kangoo", "blanc", 45, 850));
+Console.WriteLine($"La liste de voiture contient {listeVoiture.Count} voitures");
+Console.WriteLine($"======== Contenu de la liste de voiture ========");
+foreach (Voiture v in listeVoiture)
+    Console.WriteLine(v);
+Console.WriteLine($"===============================================");
+
+
+#endregion
+
 Console.WriteLine("Appuyez sur ENTER pour fermer la console...");
 Console.Read();

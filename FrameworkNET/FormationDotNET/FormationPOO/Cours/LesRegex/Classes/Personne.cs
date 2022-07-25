@@ -34,10 +34,10 @@ namespace LesRegex.Classes
             get => firstname; 
             set
             {
-                if (Tools.IsName(value))                
-                    firstname = value;                
+                if (Tools.IsName(value))
+                    firstname = value;
                 else
-                    Console.WriteLine("Erreur format prénom...");
+                    throw new FormatException("Erreur Format Prénom...");
             }
         }
         public string Lastname 
@@ -48,7 +48,7 @@ namespace LesRegex.Classes
                 if (Tools.IsName(value))
                     lastname = value;
                 else
-                    Console.WriteLine("Erreur format nom...");
+                    throw new FormatException("Erreur Format Nom...");
             }
         }
 
@@ -60,7 +60,7 @@ namespace LesRegex.Classes
                 if (Tools.IsPhone(value))
                     telephone = value;
                 else
-                    Console.WriteLine("Erreur format téléphone...");
+                    throw new FormatException("Erreur format téléphone...");
             }
         }
 
@@ -72,7 +72,7 @@ namespace LesRegex.Classes
                 if (Tools.IsEmail(value))
                     email = value;
                 else
-                    Console.WriteLine("Erreur format email...");
+                    throw new FormatException("Erreur format email...");
             }
         }
 

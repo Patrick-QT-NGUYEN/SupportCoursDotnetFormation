@@ -9,10 +9,18 @@ using LesRegex.Classes;
 
 // Création d'une personne()
 Personne p = new();
-p.Firstname = "Anthony";
-p.Lastname = "Di Persio";
-p.Telephone = "0614859632";
-p.Email = "anthony.di-persio@utopios.net";
+try
+{
+    p.Firstname = "Anthony";
+    p.Lastname = "Di Persio";
+    p.Telephone = "0614859632";
+    p.Email = "anthony.di-persio@utopios.net";
+}
+catch (FormatException f)
+{
+    Console.WriteLine(f.Message);
+}
+
 Console.WriteLine(p);
 
 Console.WriteLine(Tools.FormatPhone("33-6-14-85-96-32"));
