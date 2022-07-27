@@ -1,5 +1,5 @@
 ﻿-- Requete pour voir la table
-SELECT * FROM Product
+SELECT TOP 3 * FROM Product
 
 -- Requête sur la table PRODUCT pour trouver un certain type de produit 'LOAN'
 SELECT Pro.PRODUCT_CD ,
