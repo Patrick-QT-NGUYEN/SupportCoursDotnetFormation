@@ -175,8 +175,7 @@ namespace TpListContactIhmAdoNET.Classes
             // Affichage du Titre de la sous partie
             OnCyan("\n\t\t\tModifier un contact");
 
-            // Déclaration d'un booléen pour verifier l'update
-            bool updated = false;
+            
             // Création d'un contact
             Contact c = null;
             // Initialisation de l'id du contact a update
@@ -187,10 +186,18 @@ namespace TpListContactIhmAdoNET.Classes
             while (!int.TryParse(Console.ReadLine(), out index) && index > 0)
                 OnRed("Veuillez saisir un entier positif");
 
-            // Si le contact existe dans la liste
-            if (GetContact(index).Item1)
-                // Assignation a c du contact
-                c = GetContact(index).Item2;
+
+            (bool found, Contact tmp) = GetContact(index);
+
+
+            //// Si le contact existe dans la liste
+            //if (GetContact(index).Item1)
+            //    // Assignation a c du contact
+            //    c = GetContact(index).Item2;
+            if (found)
+            {
+                c = tmp;
+            }
             else
             {
                 // Sinon affichage de l'erreur
@@ -377,11 +384,12 @@ namespace TpListContactIhmAdoNET.Classes
         {
             RefreshContactList();
             Contact contact = new();
-            bool found = contact.Get(id).Item1;
+            (bool found, Contact c) = contact.Get(id);
+            //bool found = contact.Get(id).Item1;
             if (found)            
-                contact = contact.Get(id).Item2;            
+                contact = c;            
 
-            return (found, contact);
+            return (found, c);
         }
 
         public void WaitUser()

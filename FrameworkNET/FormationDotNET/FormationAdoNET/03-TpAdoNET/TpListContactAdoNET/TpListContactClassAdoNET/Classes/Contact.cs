@@ -152,7 +152,7 @@ namespace TpListContactClassAdoNET.Classes
                     Firstname = reader.GetString(4),
                     Lastname = reader.GetString(5),
                     DateOfBirth = (DateTime)reader[6],
-                    contactAddress = new Address()
+                    ContactAddress = new Address()
                     {
                         AddressId = reader.GetInt32(7),
                         Number = reader.GetInt32(8),
@@ -182,7 +182,7 @@ namespace TpListContactClassAdoNET.Classes
             _connection = Connection.New;
             // Ajout de la personne en BDD
             int personId = base.Add();
-            int addressId = ContactAddress.AddressId;
+            //int addressId = ContactAddress.AddressId;
 
             if (personId > 0)
             {
@@ -197,7 +197,7 @@ namespace TpListContactClassAdoNET.Classes
                 command.Parameters.Add(new SqlParameter("@Email", Email));
                 command.Parameters.Add(new SqlParameter("@PhoneNumber", PhoneNumber));
                 command.Parameters.Add(new SqlParameter("@PersonId", personId));
-                command.Parameters.Add(new SqlParameter("@AddressId", addressId));
+                command.Parameters.Add(new SqlParameter("@AddressId", contactAddress.AddressId));
 
                 // Execution de la commande
                 _connection.Open();

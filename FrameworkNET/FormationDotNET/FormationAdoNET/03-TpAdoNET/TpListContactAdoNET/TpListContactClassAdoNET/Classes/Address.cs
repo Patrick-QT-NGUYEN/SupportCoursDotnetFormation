@@ -55,12 +55,16 @@ namespace TpListContactClassAdoNET.Classes
             _command.Parameters.Add(new SqlParameter("@Town", Town));
             _command.Parameters.Add(new SqlParameter("@Country", Country));
 
-            // Execution de la commande
+            // Ouverture de la connection à la BDD
             _connection.Open();
+
+            // Execution de la commande
             int Id = (int)_command.ExecuteScalar();
 
             // Libération de l'objet command
             _command.Dispose();
+
+            // Fermeture de la connection à la BDD
             _connection.Close();
 
 
