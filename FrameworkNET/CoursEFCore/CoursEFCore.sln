@@ -7,9 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCORE_Basics", "EFCORE_Bas
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercices", "Exercices", "{25E550C2-E5FA-4EC8-9151-9ABD526736ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EXO_ListContacts", "EXO_ListContacts\EXO_ListContacts.csproj", "{55A53B0D-82D9-4117-A5BC-F76BB1D0711D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EXO_ListContacts", "EXO_ListContacts\EXO_ListContacts.csproj", "{55A53B0D-82D9-4117-A5BC-F76BB1D0711D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCORE_Liaisons", "EFCORE_Liaisons\EFCORE_Liaisons.csproj", "{87BF66E0-04C2-4AA0-9ABE-68D8DA78117E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCORE_Liaisons", "EFCORE_Liaisons\EFCORE_Liaisons.csproj", "{87BF66E0-04C2-4AA0-9ABE-68D8DA78117E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EXO_VideoStore", "EXO_VideoStore\EXO_VideoStore.csproj", "{C88FB3CC-2FB4-418A-A2BD-6DA9A37993D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCORE_RepoPattern", "EFCORE_RepoPattern\EFCORE_RepoPattern.csproj", "{B36F30C0-5E2D-459C-A6BA-B2CB213E25A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +33,21 @@ Global
 		{87BF66E0-04C2-4AA0-9ABE-68D8DA78117E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87BF66E0-04C2-4AA0-9ABE-68D8DA78117E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87BF66E0-04C2-4AA0-9ABE-68D8DA78117E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C88FB3CC-2FB4-418A-A2BD-6DA9A37993D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C88FB3CC-2FB4-418A-A2BD-6DA9A37993D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C88FB3CC-2FB4-418A-A2BD-6DA9A37993D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C88FB3CC-2FB4-418A-A2BD-6DA9A37993D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B36F30C0-5E2D-459C-A6BA-B2CB213E25A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B36F30C0-5E2D-459C-A6BA-B2CB213E25A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B36F30C0-5E2D-459C-A6BA-B2CB213E25A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B36F30C0-5E2D-459C-A6BA-B2CB213E25A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{55A53B0D-82D9-4117-A5BC-F76BB1D0711D} = {25E550C2-E5FA-4EC8-9151-9ABD526736ED}
+		{C88FB3CC-2FB4-418A-A2BD-6DA9A37993D8} = {25E550C2-E5FA-4EC8-9151-9ABD526736ED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3653904A-3EE7-4FD9-A1BC-7F80B25C67D5}
