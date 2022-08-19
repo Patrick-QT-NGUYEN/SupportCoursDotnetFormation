@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCORE_Liaisons", "EFCORE_L
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EXO_VideoStore", "EXO_VideoStore\EXO_VideoStore.csproj", "{C88FB3CC-2FB4-418A-A2BD-6DA9A37993D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCORE_RepoPattern", "EFCORE_RepoPattern\EFCORE_RepoPattern.csproj", "{B36F30C0-5E2D-459C-A6BA-B2CB213E25A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCORE_RepoPattern", "EFCORE_RepoPattern\EFCORE_RepoPattern.csproj", "{B36F30C0-5E2D-459C-A6BA-B2CB213E25A6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EXO_eLibrary", "EXO_eLibrary\EXO_eLibrary.csproj", "{F472BD48-CC91-4EDE-AF47-398EE1CC8A77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{B36F30C0-5E2D-459C-A6BA-B2CB213E25A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B36F30C0-5E2D-459C-A6BA-B2CB213E25A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B36F30C0-5E2D-459C-A6BA-B2CB213E25A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F472BD48-CC91-4EDE-AF47-398EE1CC8A77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F472BD48-CC91-4EDE-AF47-398EE1CC8A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F472BD48-CC91-4EDE-AF47-398EE1CC8A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F472BD48-CC91-4EDE-AF47-398EE1CC8A77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{55A53B0D-82D9-4117-A5BC-F76BB1D0711D} = {25E550C2-E5FA-4EC8-9151-9ABD526736ED}
 		{C88FB3CC-2FB4-418A-A2BD-6DA9A37993D8} = {25E550C2-E5FA-4EC8-9151-9ABD526736ED}
+		{F472BD48-CC91-4EDE-AF47-398EE1CC8A77} = {25E550C2-E5FA-4EC8-9151-9ABD526736ED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3653904A-3EE7-4FD9-A1BC-7F80B25C67D5}
