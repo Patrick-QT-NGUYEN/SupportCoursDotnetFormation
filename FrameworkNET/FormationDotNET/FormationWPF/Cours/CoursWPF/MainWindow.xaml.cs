@@ -25,7 +25,7 @@ namespace CoursWPF
             InitializeComponent();
             MakeBtn();
         }
-
+        // Création d'objets depuis le code Behind
         void MakeBtn()
         {
             Button button1 = new Button()
@@ -37,7 +37,7 @@ namespace CoursWPF
             button1.Click += ClickBtn;
             grid.Children.Add(button1);
         }
-
+        // Methode activée par le click du Button ValiderBtn
         private void ValiderBtn_Click(object sender, RoutedEventArgs e)
         {
             if (NomTbox.Text != "" && PrenomTBox.Text != "")
@@ -81,6 +81,23 @@ namespace CoursWPF
                     ResultTB.Text += message.ToString();
                     break;
             }            
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void GridWindow_Click(object sender, RoutedEventArgs e)
+        {
+            GridWindow g = new();
+            g.Show();
+        }
+
+        private void DockPanel_Click(object sender, RoutedEventArgs e)
+        {
+            DockPanel d = new();
+            d.Show();
         }
     }
 }

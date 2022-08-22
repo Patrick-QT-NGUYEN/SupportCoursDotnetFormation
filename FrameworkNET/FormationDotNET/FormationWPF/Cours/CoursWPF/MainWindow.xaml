@@ -6,8 +6,24 @@
         xmlns:local="clr-namespace:CoursWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid>
+    <Grid >        
         <StackPanel Orientation="Vertical">
+            <Menu Background="#FF463E3E">
+                <MenuItem Header="Fichier" Background="#FF888686">
+                    <MenuItem Header="Nouveau"/>
+                    <MenuItem Header="Ouvrir"/>
+                    <MenuItem Header="Enregistrer"/>
+                    <Separator/>
+                    <MenuItem Header="Fermer" Click="Exit_Click"/>                    
+                </MenuItem>
+                <MenuItem Header="GridWindow" Background="#FF888686" Click="GridWindow_Click"/>
+                <MenuItem Header="DockPanel" Background="#FF888686" Click="DockPanel_Click"/>
+
+
+                <MenuItem Header="About" Background="#FF888686"/>
+
+
+            </Menu>
             <Button x:Name="SourceBtn"  Content="Affichage Sources" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0" Width="100" Click="SourceBtn_Click"/>
             <GroupBox Header="Information Contact">
                 <StackPanel x:Name="grid" Orientation="Vertical">
