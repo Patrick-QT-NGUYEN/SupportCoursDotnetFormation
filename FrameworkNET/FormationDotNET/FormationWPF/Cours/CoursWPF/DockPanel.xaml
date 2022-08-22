@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CoursWPF"
         mc:Ignorable="d"
-        Title="DockPanel" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="DockPanel" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <BitmapImage x:Key="M2iLogo" UriSource="/img/BanniereM2i.png"/>
+    </Window.Resources>
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top">
+        <Image Source="{StaticResource ResourceKey=M2iLogo}" Height="100px" Margin="0,0,0,0"/>
+        </TextBlock>
+        <TextBlock DockPanel.Dock="Bottom" Background="#FFFF2F00" Height="40" Width="800px" Text="Footer"/>
+
+
+        <TextBlock Text="Left Menu" DockPanel.Dock="Left" Background="Aqua" Width="100px"/>
+        <TextBlock Width="600px">Content</TextBlock>
+        <TextBlock Text="Right Menu" DockPanel.Dock="Right" Background="Aqua" Width="100px"/>
+    </DockPanel>
 </Window>
