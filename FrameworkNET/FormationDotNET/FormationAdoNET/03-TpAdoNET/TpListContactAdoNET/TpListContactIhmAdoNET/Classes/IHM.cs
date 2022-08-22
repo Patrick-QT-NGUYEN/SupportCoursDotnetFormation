@@ -293,7 +293,7 @@ namespace TpListContactIhmAdoNET.Classes
                 email = stringTmp == "" ? c.Email : stringTmp;
 
                 // Update du contact
-                Contact tmp = new Contact()
+                Contact tmp1 = new Contact()
                 {
                     Id = c.Id,
                     Firstname = firstname,
@@ -304,7 +304,7 @@ namespace TpListContactIhmAdoNET.Classes
                     PhoneNumber = phone
                 };
                 // Si la méthode update return false
-                if (!tmp.Update())
+                if (!tmp1.Update())
                     OnRed("\nErreur lors la modification du contact.\n");
                 else
                     OnGreen("\nContact modifié avec succès...");

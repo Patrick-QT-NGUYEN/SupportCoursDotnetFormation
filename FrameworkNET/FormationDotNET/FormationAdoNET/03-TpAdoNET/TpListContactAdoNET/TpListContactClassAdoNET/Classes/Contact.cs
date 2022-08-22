@@ -128,7 +128,7 @@ namespace TpListContactClassAdoNET.Classes
             // Prépartion de la commande
             string request = "SELECT ctc.id, ctc.email, ctc.telephone, psn.id, psn.prenom, psn.nom, psn.date_naissance, " +
                 "adr.id, adr.number, adr.road_name, adr.postal_code, adr.town, adr.country " +
-                "FROM CONTACT AS ctc " +
+                "FROM CONTACTS AS ctc " +
                 "INNER JOIN PERSON AS psn ON ctc.Person_ID = psn.Id " +
                 "INNER JOIN ADDRESS AS adr ON ctc.Address_ID = adr.Id";
 
