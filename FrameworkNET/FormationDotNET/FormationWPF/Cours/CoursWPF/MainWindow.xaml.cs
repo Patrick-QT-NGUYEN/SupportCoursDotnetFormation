@@ -99,5 +99,11 @@ namespace CoursWPF
             DockPanel d = new();
             d.Show();
         }
+
+        private void UniformGridWindow_Click(object sender, RoutedEventArgs e)
+        {
+            UniformGridWindow u = new();
+            u.Show();
+        }
     }
 }

@@ -14,9 +14,11 @@
                     <MenuItem Header="Ouvrir"/>
                     <MenuItem Header="Enregistrer"/>
                     <Separator/>
+                    <Separator/>
                     <MenuItem Header="Fermer" Click="Exit_Click"/>                    
                 </MenuItem>
-                <MenuItem Header="GridWindow" Background="#FF888686" Click="GridWindow_Click"/>
+                <MenuItem Header="Grid" Background="#FF888686" Click="GridWindow_Click"/>
+                <MenuItem Header="UniformGrid" Background="#FF888686" Click="UniformGridWindow_Click"/>
                 <MenuItem Header="DockPanel" Background="#FF888686" Click="DockPanel_Click"/>
 
 

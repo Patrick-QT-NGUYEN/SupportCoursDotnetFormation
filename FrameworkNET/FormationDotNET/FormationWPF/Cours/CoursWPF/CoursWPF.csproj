@@ -1,10 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>disable</Nullable>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
 
+
+	<!-- Inclure des elements statiques dans l'assembly -->
+	<ItemGroup>
+		<Resource Include="img/BanniereM2i.png" />
+		<!-- Pour inclure toutes les ressources .png d'un dossier -->
+		<!--<Resource Include="img/*.png" />-->
+	</ItemGroup>
 </Project>

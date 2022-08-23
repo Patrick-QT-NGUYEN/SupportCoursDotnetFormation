@@ -1,7 +1,7 @@
-﻿<Application x:Class="CoursWPF.App"
+﻿<Application x:Class="Le_Pendu.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:CoursWPF"
+             xmlns:local="clr-namespace:Le_Pendu"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
