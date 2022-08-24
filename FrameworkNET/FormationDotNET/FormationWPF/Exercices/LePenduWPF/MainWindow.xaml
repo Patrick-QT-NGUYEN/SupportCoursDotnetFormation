@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LePenduWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="Le Pendu WPF" Height="500" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <StackPanel Background="DarkOrange">
+        <TextBlock Text="Le Pendu" Foreground="#404040" TextAlignment="Center" Margin="0,20,0,0" FontWeight="Bold" FontSize="35" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Width="400" Height="300">
+                <Image x:Name="ImageDisplay" Source="/img/pendu-1_orange.jpg" MaxHeight="300" Margin="0,10,0,0"/>
+            </StackPanel>
+            <StackPanel  Width="400" Height="300">
+                <TextBlock Text="Le mot à trouver" Height="40" FontSize="30" TextAlignment="Center" Foreground="#FFFFFF" Margin="0,20,0,0"/>
+                <TextBlock x:Name="BlocMasque" Text="*********" Height="60" FontSize="40" TextAlignment="Center" Foreground="#404040" Margin="0,20,0,0"/>
+                <TextBlock Text="Lettre(s) déjà proposée(s):" FontSize="25" TextAlignment="Center" Foreground="#FFFFFF"/>
+                <TextBlock x:Name="BlocDejaPropose" Text="A-B-C-D" FontSize="25" TextAlignment="Center" Foreground="#404040" Margin="0,10,0,0"/>
+                <TextBlock Text="Proposez une lettre : " FontSize="25" TextAlignment="Center" Foreground="#FFFFFF"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="BoxUserChar" MinWidth="150" Height="50" Margin="40,0,40,0" VerticalContentAlignment="Center" FontSize="30" TextAlignment="Right" />
+                    <Button x:Name="BtnValider" Content="Valider" Height="50" Width="120" FontSize="30" Margin="10,0,0,0" VerticalAlignment="Center" Click="BtnValider_Click"/>
+                </StackPanel>                
+            </StackPanel>
+        </StackPanel>
+        <Button x:Name="BtnRejouer" Content="Rejouer" FontSize="25" Height="50" Margin="20,20,20,20" Click="BtnRejouer_Click" />
+    </StackPanel>
 </Window>

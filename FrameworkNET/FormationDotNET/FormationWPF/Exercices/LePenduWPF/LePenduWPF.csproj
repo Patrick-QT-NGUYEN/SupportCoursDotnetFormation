@@ -7,4 +7,11 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FormationPOO\TpPoo\TpPendu\TpLePendu\TpLePendu.csproj" />
+  </ItemGroup>
+	<ItemGroup>
+		<Resource Include="img\*.jpg" />
+	</ItemGroup>
+
 </Project>
