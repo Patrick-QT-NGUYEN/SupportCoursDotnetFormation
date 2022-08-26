@@ -105,5 +105,23 @@ namespace CoursWPF
             UniformGridWindow u = new();
             u.Show();
         }
+
+        private void ListViewWindow_Click(object sender, RoutedEventArgs e)
+        {
+            ListViewWindow l = new();
+            l.Show();
+        }
+
+        private void ImagesWindow_Click(object sender, RoutedEventArgs e)
+        {
+            ImagesWindow i = new ImagesWindow();
+            i.Show();
+        }
+
+        private void DataBinding_Click(object sender, RoutedEventArgs e)
+        {
+            DataBindingWindow d = new DataBindingWindow();
+            d.Show();
+        }
     }
 }

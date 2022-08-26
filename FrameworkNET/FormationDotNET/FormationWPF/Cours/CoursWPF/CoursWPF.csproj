@@ -7,6 +7,10 @@
 		<UseWPF>true</UseWPF>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\FormationAdoNET\03-TpAdoNET\TpListContactAdoNET\TpListContactClassAdoNET\TpListContactClassAdoNET.csproj" />
+	</ItemGroup>
+
 
 	<!-- Inclure des elements statiques dans l'assembly -->
 	<ItemGroup>

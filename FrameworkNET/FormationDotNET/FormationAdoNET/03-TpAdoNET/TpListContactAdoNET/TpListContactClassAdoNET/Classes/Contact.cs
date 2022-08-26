@@ -64,11 +64,11 @@ namespace TpListContactClassAdoNET.Classes
             SqlConnection connection = Connection.New;
 
             // Prépartion de la commande
-            string request = "SELECT ctc.id, ctc.email, ctc.telephone, psn.id, psn.prenom, psn.nom, psn.date_naissance, " +
-                "adr.id, adr.number, adr.road_name, adr.postal_code, adr.town, adr.country " +
-                "FROM CONTACT AS ctc " +
-                "INNER JOIN PERSON AS psn ON ctc.Person_ID = psn.Id " +
-                "INNER JOIN ADDRESS AS adr ON ctc.Address_ID = adr.Id " +
+            string request = "SELECT ctc.ID, ctc.Email, ctc.Telephone, psn.ID, psn.Prenom, psn.Nom, psn.DateNaissance, " +
+                "adr.ID, adr.NumeroRue, adr.NomRue, adr.CodePostal, adr.Ville, adr.Pays " +
+                "FROM TPContactList_Contact AS ctc " +
+                "INNER JOIN TPContactList_Person AS psn ON ctc.IDContact = psn.Id " +
+                "INNER JOIN TPContactList_Address AS adr ON ctc.IDAddress = adr.Id " +
                 "WHERE ctc.id = @Id";
 
             // Préparation de la commande
@@ -126,11 +126,11 @@ namespace TpListContactClassAdoNET.Classes
             SqlConnection connection = Connection.New;
 
             // Prépartion de la commande
-            string request = "SELECT ctc.id, ctc.email, ctc.telephone, psn.id, psn.prenom, psn.nom, psn.date_naissance, " +
-                "adr.id, adr.number, adr.road_name, adr.postal_code, adr.town, adr.country " +
-                "FROM CONTACTS AS ctc " +
-                "INNER JOIN PERSON AS psn ON ctc.Person_ID = psn.Id " +
-                "INNER JOIN ADDRESS AS adr ON ctc.Address_ID = adr.Id";
+            string request = "SELECT ctc.ID, ctc.Email, ctc.Telephone, psn.ID, psn.Prenom, psn.Nom, psn.DateNaissance, " +
+                "adr.id, adr.NumeroRue, adr.NomRue, adr.CodePostal, adr.Ville, adr.Pays " +
+                "FROM TPContactList_Contact AS ctc " +
+                "INNER JOIN TPContactList_Person AS psn ON ctc.IDContact = psn.Id " +
+                "INNER JOIN TPContactList_Address AS adr ON ctc.IDAddress = adr.Id";
 
             // Préparation de la commande
             SqlCommand command = new SqlCommand(request, connection);
@@ -187,7 +187,7 @@ namespace TpListContactClassAdoNET.Classes
             if (personId > 0)
             {
                 // Prépartion de la commande
-                _request = "INSERT INTO Contact (email, telephone, person_id, address_id) " +
+                _request = "INSERT INTO TPContactList_Contact (Email, Telephone, IDContact, IDAddress) " +
                     "OUTPUT INSERTED.ID VALUES (@Email, @PhoneNumber, @PersonId, @AddressId)";
 
                 // Préparation de la commande
@@ -220,7 +220,7 @@ namespace TpListContactClassAdoNET.Classes
             _connection = Connection.New;
 
             // Prépartion de la commande
-            _request = "UPDATE CONTACT SET email=@Email, telephone=@PhoneNumber OUTPUT INSERTED.PERSON_ID WHERE id=@Id ";
+            _request = "UPDATE TPContactList_Contact SET email=@Email, telephone=@PhoneNumber OUTPUT INSERTED.PERSON_ID WHERE id=@Id ";
 
             // Préparation de la commande
             _command = new SqlCommand(_request, _connection);
@@ -241,7 +241,7 @@ namespace TpListContactClassAdoNET.Classes
             _command.Dispose();
 
             // Prépartion de la commande
-            _request = "UPDATE PERSON SET prenom=@Prenom, nom=@Nom, date_naissance=@DateNaissance WHERE id=@PersonId ";
+            _request = "UPDATE TPContactList_Person SET prenom=@Prenom, nom=@Nom, datenaissance=@DateNaissance WHERE id=@PersonId ";
 
             // Préparation de la commande
             _command = new SqlCommand(_request, _connection);
@@ -282,7 +282,7 @@ namespace TpListContactClassAdoNET.Classes
             _connection = Connection.New;
 
             // Prépartion de la commande
-            _request = "DELETE CONTACT WHERE id=@Id";
+            _request = "DELETE TPContactList_Contact WHERE id=@Id";
 
             // Préparation de la commande
             _command = new SqlCommand(_request, _connection);

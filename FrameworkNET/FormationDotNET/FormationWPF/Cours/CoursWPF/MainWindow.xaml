@@ -20,6 +20,9 @@
                 <MenuItem Header="Grid" Background="#FF888686" Click="GridWindow_Click"/>
                 <MenuItem Header="UniformGrid" Background="#FF888686" Click="UniformGridWindow_Click"/>
                 <MenuItem Header="DockPanel" Background="#FF888686" Click="DockPanel_Click"/>
+                <MenuItem Header="Images" Background="#FF888686" Click="ImagesWindow_Click"/>
+                <MenuItem Header="ListWiew" Background="#FF888686" Click="ListViewWindow_Click"/>
+                <MenuItem Header="DataBinding" Background="#FF888686" Click="DataBinding_Click"/>
 
 
                 <MenuItem Header="About" Background="#FF888686"/>

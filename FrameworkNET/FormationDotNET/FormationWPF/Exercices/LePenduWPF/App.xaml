@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:LePenduWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style TargetType="{x:Type Button}">
+        <Style x:Key="Style1"  TargetType="{x:Type Button}">
             <Setter Property="Background" Value="#FF404040"/>
             <Setter Property="Foreground" Value="white"/>
             <Setter Property="Template">

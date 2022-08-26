@@ -42,7 +42,7 @@ namespace TpListContactClassAdoNET.Classes
             _connection = Connection.New;
 
             // Prépartion de la commande
-            _request = "INSERT INTO ADDRESS (NUMBER, ROAD_NAME, POSTAL_CODE, TOWN, COUNTRY) " +
+            _request = "INSERT INTO TPContactList_Address (NumeroRue, NomRue, CodePostal, Ville, Pays) " +
                 "OUTPUT INSERTED.ID VALUES (@Number, @RoadName, @PostalCode, @Town, @Country)";
 
             // Préparation de la commande
@@ -77,8 +77,8 @@ namespace TpListContactClassAdoNET.Classes
             _connection = Connection.New;
 
             // Prépartion de la commande
-            _request = "UPDATE ADDRESS SET number = @Number, road_name = @RoadName, postal_code = @PostalCode, " +
-                "town = @Town, country = @Country WHERE id=@AdresseId";
+            _request = "UPDATE TPContactList_Address SET NumeroRue = @Number, NomRue = @RoadName, CodePostal = @PostalCode, " +
+                "Ville = @Town, Pays = @Country WHERE id=@AdresseId";
 
             // Préparation de la commande
             _command = new SqlCommand(_request, _connection);
@@ -110,7 +110,7 @@ namespace TpListContactClassAdoNET.Classes
             _connection = Connection.New;
 
             // Prépartion de la commande
-            _request = "DELETE ADDRESS WHERE id=@AddressId";
+            _request = "DELETE TPContactList_Address WHERE id=@AddressId";
 
 
             // Préparation de la commande
