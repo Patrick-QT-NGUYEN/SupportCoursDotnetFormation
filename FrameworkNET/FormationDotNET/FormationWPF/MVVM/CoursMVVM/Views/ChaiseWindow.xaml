@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CoursMVVM.Views"
         mc:Ignorable="d"
-        Title="ChaiseWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="ChaiseWindow" Height="200" Width="500">
+    <GroupBox Header=" Chaise ">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10,0,10,0">
+                <Label Content="NbPieds : " MinWidth="100"/>
+                <TextBox Text="{Binding NbPieds}" Width="300" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10,0,10,0">
+                <Label Content="Couleur : " MinWidth="100"/>
+                <TextBox Text="{Binding Couleur}" Width="300" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10,0,10,0">
+                <Label Content="Matériaux : " MinWidth="100"/>
+                <TextBox Text="{Binding Materiaux}" Width="300" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10,0,10,0">
+                <Label Content="Chaise : "/>
+                <Label Content="NbPieds : "/>
+                <Label Content="{Binding NbPieds}"/>
+                <Label Content="Couleur :  "/>
+                <Label Content="{Binding Couleur}"/>
+                <Label Content="Matériaux :  "/>
+                <Label Content="{Binding Materiaux}"/>
+            </StackPanel>
+
+            <Button Command="{Binding ValidCommand}" Content="Valider" Margin="10,0,10,0"/>
+        </StackPanel>        
+    </GroupBox>
 </Window>
