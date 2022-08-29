@@ -1,0 +1,54 @@
+﻿@using System.Collections.ObjectModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    
+}
+
+@model ObservableCollection<Personne>
+
+<h1>Personne View Index</h1>
+
+<div class="card details">
+
+
+    <h4>Liste des personnes</h4>
+    @if (ViewBag.data != null)
+    {
+        <div>@ViewBag.data.Nom</div>
+    }
+    else
+    {
+        <div>Il n'y a rien dans le ViewBag.data</div>
+    }
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Email</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Personne p in Model)
+            {
+                <tr>
+                    <th scope="row">@p.Id</th>
+                    <td>@p.Nom</td>
+                    <td>@p.Prenom</td>
+                    <td>@p.Email</td>
+                    <td>
+                        <a asp-controller="Personne" asp-action="Details" asp-route-Id="@p.Id" asp-route-add="false">Détails</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
