@@ -9,11 +9,13 @@ namespace EXO_eLibrary.Classes
 {
     internal enum BookCategory
     {
+        None,
         Biographie,
         Fantastique,
         Poesie,
         Educatif,
-        Polar
+        Polar,
+        Classiques
     }
     internal class Book
     {

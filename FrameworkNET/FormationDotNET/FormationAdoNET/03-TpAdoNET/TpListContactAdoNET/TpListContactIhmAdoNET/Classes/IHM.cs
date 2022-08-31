@@ -1,10 +1,11 @@
-﻿using TpListContactClassAdoNET.Classes;
+﻿using System.Collections.ObjectModel;
+using TpListContactClassAdoNET.Classes;
 
 namespace TpListContactIhmAdoNET.Classes
 {
     public class IHM
     {
-        List<Contact> Contacts;
+        ObservableCollection<Contact> Contacts;
 
         public IHM()
         {

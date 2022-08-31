@@ -23,8 +23,8 @@ namespace TP05.Datas
         {
             get
             {
-                if (instance == null) return new ApplicationDbContext();
-                else return instance;
+                if (instance == null) instance = new ApplicationDbContext();
+                return instance;
             }
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

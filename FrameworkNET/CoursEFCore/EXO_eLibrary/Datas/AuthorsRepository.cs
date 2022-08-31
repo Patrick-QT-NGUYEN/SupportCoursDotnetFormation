@@ -37,6 +37,11 @@ namespace EXO_eLibrary.Datas
             return _context.Authors.Include(x => x.Books).FirstOrDefault(x => x.Id == id);
         }
 
+        //public ICollection<Author> Find(Func<Author, bool> predicate)
+        //{
+        //    return _context.Authors.Include(x => x.Books).Where(predicate).ToList();
+        //}
+
         public bool Update(Author element)
         {
             if (element != null)

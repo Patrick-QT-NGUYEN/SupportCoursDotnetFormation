@@ -24,7 +24,7 @@ namespace EXO_eLibrary.Datas
                 _context.Books.Remove(element);
             }
 
-            return _context.SaveChanges() > 0;
+            return _context.SaveChanges() == 1;
         }
 
         public ICollection<Book> GetAll()

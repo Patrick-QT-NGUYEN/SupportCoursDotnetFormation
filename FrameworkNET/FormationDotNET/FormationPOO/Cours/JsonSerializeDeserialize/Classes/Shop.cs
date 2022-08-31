@@ -83,22 +83,22 @@ namespace JsonSerializeDeserialize.Classes
             try
             {
                 // Récupération de la quantité deja en stock
-                int quantiteInit = Produits[index].Quantite;
+                int quantiteInit = Produits[index-1].Quantite;
 
                 // Calcul de la nouvelle quantité
                 int quantiteFinale = quantiteInit + quantite;
 
                 // Recuperation du prix HT initial
-                double prixHtInit = Produits[index].PrixHt;
+                double prixHtInit = Produits[index-1].PrixHt;
 
                 // Recuperation du taux de TVA applicable au produit
-                double tvaInit = Produits[index].Tva;
+                double tvaInit = Produits[index-1].Tva;
 
                 // Update de la quantité de produits dans la liste produits
-                Produits[index].Quantite += quantite;
+                Produits[index-1].Quantite += quantite;
 
                 // Recalcul du PAMP (Prix Achat Moyen Pondéré)
-                Produits[index].PrixHt = Math.Round((prixHtInit * quantiteInit + prixHt * quantite) / quantiteFinale);
+                Produits[index-1].PrixHt = Math.Round((prixHtInit * quantiteInit + prixHt * quantite) / quantiteFinale,2);
 
                 // Mise à jour du fichier listeProduits.txt pour persistance des données
                 result = UpdateProductFile();

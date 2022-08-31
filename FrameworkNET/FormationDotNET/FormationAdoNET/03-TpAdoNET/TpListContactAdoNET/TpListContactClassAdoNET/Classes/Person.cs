@@ -44,7 +44,7 @@ namespace TpListContactClassAdoNET.Classes
             _connection = Connection.New;
 
             // Prépartion de la commande
-            _request = "SELECT (nom, prenom , date_naissance) FROM TPContactList_Person WHERE id=@Id";
+            _request = "SELECT (nom, prenom , date_naissance) FROM PERSON WHERE id=@Id";
 
             // Préparation de la commande
             _command = new SqlCommand(_request, _connection);
@@ -80,7 +80,7 @@ namespace TpListContactClassAdoNET.Classes
             _connection = Connection.New;
 
             // Prépartion de la commande
-            _request = "INSERT INTO TPContactList_Person (nom, prenom, DateNaissance) OUTPUT INSERTED.ID VALUES (@Firstname, @Lastname, @DateOfBirth)";
+            _request = "INSERT INTO Person (nom, prenom, date_naissance) OUTPUT INSERTED.ID VALUES (@Firstname, @Lastname, @DateOfBirth)";
 
             // Préparation de la commande
             _command = new SqlCommand(_request, _connection);
@@ -108,7 +108,7 @@ namespace TpListContactClassAdoNET.Classes
             _connection = Connection.New;
 
             // Prépartion de la commande
-            _request = "UPDATE TPContactList_Person SET nom = @Firstname, prenom = @Lastname, DateNaissance = @DateOfBirth WHERE id=@PersonId";
+            _request = "UPDATE PERSON SET nom = @Firstname, prenom = @Lastname, date_naissance = @DateOfBirth WHERE id=@PersonId";
             
 
             // Préparation de la commande
@@ -138,7 +138,7 @@ namespace TpListContactClassAdoNET.Classes
             _connection = Connection.New;
 
             // Prépartion de la commande
-            _request = "DELETE TPContactList_Person WHERE id=@PersonId";
+            _request = "DELETE PERSON WHERE id=@PersonId";
 
 
             // Préparation de la commande

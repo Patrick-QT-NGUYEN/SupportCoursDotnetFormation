@@ -136,7 +136,7 @@ namespace EXO_eLibrary.Classes
             }
             else
             {
-                Console.Write("Nouveau om de l'éditeur : ");
+                Console.Write("Nouveau nom de l'éditeur : ");
                 string editorNewName = Console.ReadLine();
 
                 editorToEd.Name = editorNewName;

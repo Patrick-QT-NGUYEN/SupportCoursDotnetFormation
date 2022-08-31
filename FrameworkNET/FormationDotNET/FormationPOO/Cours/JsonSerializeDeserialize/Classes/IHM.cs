@@ -55,7 +55,6 @@ namespace JsonSerializeDeserialize.Classes
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("----------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine("----------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("--------------------------------------------- Application CART -------------------------------------------------");
             Console.WriteLine("----------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("----------------------------------------------------------------------------------------------------------------\n");
@@ -263,7 +262,7 @@ namespace JsonSerializeDeserialize.Classes
             int Quantite = Convert.ToInt32(Console.ReadLine());
 
             // Modification du produit dans le shop et affichage du résultat de l'opération
-            Console.WriteLine(shop.UpdateQuantity(id, Quantite, PrixHt) ? "\nProduit Modifié" : "\nErreur lors de la modidication du Produit");
+            Console.WriteLine(shop.UpdateQuantity(id, Quantite, PrixHt) ? "\nProduit Modifié" : "\nErreur lors de la modification du Produit");
 
             Console.WriteLine("\nAppuyer sur Enter pour revenir au menu...");
             Console.ReadLine();

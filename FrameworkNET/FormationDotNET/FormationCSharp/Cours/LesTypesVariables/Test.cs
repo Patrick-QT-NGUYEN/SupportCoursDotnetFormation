@@ -70,28 +70,28 @@
 // * LE TYPE ENTIERS => Short (-32768 à 32767)
 // */
 
-// Déclaration de la variable
-short myShort;
+//// Déclaration de la variable
+//short myShort;
 
-// Affectation de valeur à la variable
-myShort = 25;
+//// Affectation de valeur à la variable
+//myShort = 25;
 
-// Afficher la valeur de la variable
-Console.WriteLine(myShort);
-Console.WriteLine(myShort.GetType());
+//// Afficher la valeur de la variable
+//Console.WriteLine(myShort);
+//Console.WriteLine(myShort.GetType());
 
-short myShort2 = 30;
-myShort = myShort2;
-myShort2 = 40;
+//short myShort2 = 30;
+//myShort = myShort2;
+//myShort2 = 40;
 
-Console.WriteLine(myShort);
-Console.WriteLine(myShort2);
+//Console.WriteLine(myShort);
+//Console.WriteLine(myShort2);
 
-// Lecture de saisie utilisateur
-//Console.Write("Veuillez saisir votre age (Byte) : ");
-//myShort2 = Convert.ToShort(Console.ReadLine()); // Pas de convertion possible avec les type Short depuis la class Convert
-Console.WriteLine(myShort2);
-Console.WriteLine(myShort2.GetType());
+//// Lecture de saisie utilisateur
+////Console.Write("Veuillez saisir votre age (Byte) : ");
+////myShort2 = Convert.ToShort(Console.ReadLine()); // Pas de convertion possible avec les type Short depuis la class Convert
+//Console.WriteLine(myShort2);
+//Console.WriteLine(myShort2.GetType());
 
 ///*
 // * LE TYPE ENTIERS => int (de -2147483648 à 2147483647)
@@ -146,6 +146,121 @@ Console.WriteLine(myShort2.GetType());
 //myLong = Convert.ToInt32(Console.ReadLine()); // Convertion en Long non suportée par la class Convert
 //Console.WriteLine(myLong);
 //Console.WriteLine(myLong.GetType());
+#endregion
+
+#region LES TYPES DECIMAUX
+///*
+// * LE TYPE DECIMAL => Float (-3,402823e38 à 3,402823e38 )
+// */
+
+//// Déclaration de la variable
+//float myFloat;
+
+//// Affectation de valeur à la variable
+//myFloat = 25.41F;
+
+//// Afficher la valeur de la variable
+//Console.WriteLine(myFloat);
+//Console.WriteLine(myFloat.GetType()); // Single
+
+//float myFloat2 = 30.41F;
+//myFloat = myFloat2;
+//myFloat2 = 40.41F;
+
+//Console.WriteLine(myFloat);
+//Console.WriteLine(myFloat2);
+
+//// Lecture de saisie utilisateur
+//Console.Write("Veuillez saisir votre age (float) : ");
+//// myFloat = Convert.ToDouble(Console.ReadLine()); // Convertion en Float non suportée par la class Convert
+//Console.WriteLine(myFloat);
+//Console.WriteLine(myFloat.GetType());
+
+///*
+// * LE TYPE DECIMAL => Double (-1,79769313486232e308 à 1,79769313486232e308 )
+// */
+
+//// Déclaration de la variable
+//double myDouble;
+
+//// Affectation de valeur à la variable
+//myDouble = 25.41;
+
+//// Afficher la valeur de la variable
+//Console.WriteLine(myDouble);
+//Console.WriteLine(myDouble.GetType()); // Single
+
+//double myDouble2 = 30.41;
+//myDouble = myDouble2;
+//myDouble2 = 40.41;
+
+//Console.WriteLine(myDouble);
+//Console.WriteLine(myDouble2);
+
+//// Lecture de saisie utilisateur
+//Console.Write("Veuillez saisir votre age (Double) : ");
+//myDouble = Convert.ToDouble(Console.ReadLine()); // Convertion en Double suportée par la class Convert
+//Console.WriteLine(myDouble);
+//Console.WriteLine(myDouble.GetType());
+
+///*
+// * LE TYPE DECIMAL => Decimal (±1.0 × 10^-28 to ±7.9228 × 10^28)
+// */
+
+//// Déclaration de la variable
+//decimal myDecimal;
+
+//// Affectation de valeur à la variable
+//myDecimal = 25.41M;
+
+//// Afficher la valeur de la variable
+//Console.WriteLine(myDecimal);
+//Console.WriteLine(myDecimal.GetType()); // Single
+
+//decimal myDecimal2 = 30.41M;
+//myDecimal = myDecimal2;
+//myDecimal2 = 40.41M;
+
+//Console.WriteLine(myDecimal);
+//Console.WriteLine(myDecimal2);
+
+//// Lecture de saisie utilisateur
+//Console.Write("Veuillez saisir votre age (DECIMAL) : ");
+//myDecimal = Convert.ToDecimal(Console.ReadLine()); // Convertion en DECIMAL suportée par la class Convert
+//Console.WriteLine(myDecimal);
+//Console.WriteLine(myDecimal.GetType());
+
+
+#endregion
+
+#region LES VARIABLES DE TYPE "BOOLEENNE"
+// Déclaration d'une variable numérique type bool
+bool myBool;
+
+// Initialisation et affectation de valeur
+myBool = true;
+Console.WriteLine(myBool);
+Console.WriteLine(myBool.GetType());
+myBool = false;
+Console.WriteLine(myBool);
+Console.WriteLine(myBool.GetType());
+#endregion
+
+#region LES VARIABLES DE TYPE "OBJECT"
+// Déclaration d'une variable numérique type objet
+object monObjet;
+
+// Initialisation et affectation de valeur
+monObjet = "Ma chaine Objet";
+Console.WriteLine(monObjet);
+Console.WriteLine(monObjet.GetType());
+monObjet = 35;
+Console.WriteLine(monObjet);
+Console.WriteLine(monObjet.GetType());
+monObjet = true;
+// Affichage
+Console.WriteLine(monObjet);
+Console.WriteLine(monObjet.GetType());
 #endregion
 
 

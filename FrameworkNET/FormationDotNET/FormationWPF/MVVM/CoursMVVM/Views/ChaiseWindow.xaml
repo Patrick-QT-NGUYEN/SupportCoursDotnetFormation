@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CoursMVVM.Views"
         mc:Ignorable="d"
-        Title="ChaiseWindow" Height="200" Width="500">
+        Title="ChaiseWindow" Height="200" Width="450">
     <GroupBox Header=" Chaise ">
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10,0,10,0">

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace TpListContactClassAdoNET.Classes
 
         public Contact()
         {
-
+            ContactAddress = new();
         }
         public Contact(string firstname, string lastname, DateTime dateOfBirth, Address contactAddress, string phoneNumber, string email) : base(firstname, lastname, dateOfBirth)
         {
@@ -55,7 +56,7 @@ namespace TpListContactClassAdoNET.Classes
             }
         }
 
-        public (bool,Contact) Get(int id)
+        public (bool, Contact) Get(int id)
         {
             Contact contact = null;
             bool found = false;
@@ -64,11 +65,11 @@ namespace TpListContactClassAdoNET.Classes
             SqlConnection connection = Connection.New;
 
             // Prépartion de la commande
-            string request = "SELECT ctc.ID, ctc.Email, ctc.Telephone, psn.ID, psn.Prenom, psn.Nom, psn.DateNaissance, " +
-                "adr.ID, adr.NumeroRue, adr.NomRue, adr.CodePostal, adr.Ville, adr.Pays " +
-                "FROM TPContactList_Contact AS ctc " +
-                "INNER JOIN TPContactList_Person AS psn ON ctc.IDContact = psn.Id " +
-                "INNER JOIN TPContactList_Address AS adr ON ctc.IDAddress = adr.Id " +
+            string request = "SELECT ctc.id, ctc.email, ctc.telephone, psn.id, psn.prenom, psn.nom, psn.date_naissance, " +
+                "adr.id, adr.number, adr.road_name, adr.postal_code, adr.town, adr.country " +
+                "FROM CONTACT AS ctc " +
+                "INNER JOIN PERSON AS psn ON ctc.Person_ID = psn.Id " +
+                "INNER JOIN ADDRESS AS adr ON ctc.Address_ID = adr.Id " +
                 "WHERE ctc.id = @Id";
 
             // Préparation de la commande
@@ -115,7 +116,7 @@ namespace TpListContactClassAdoNET.Classes
             connection.Close();
 
             // Retour de la liste de contact
-            return (found,contact);
+            return (found, contact);
         }
 
         public static List<Contact> GetAll()
@@ -126,11 +127,11 @@ namespace TpListContactClassAdoNET.Classes
             SqlConnection connection = Connection.New;
 
             // Prépartion de la commande
-            string request = "SELECT ctc.ID, ctc.Email, ctc.Telephone, psn.ID, psn.Prenom, psn.Nom, psn.DateNaissance, " +
-                "adr.id, adr.NumeroRue, adr.NomRue, adr.CodePostal, adr.Ville, adr.Pays " +
-                "FROM TPContactList_Contact AS ctc " +
-                "INNER JOIN TPContactList_Person AS psn ON ctc.IDContact = psn.Id " +
-                "INNER JOIN TPContactList_Address AS adr ON ctc.IDAddress = adr.Id";
+            string request = "SELECT ctc.id, ctc.email, ctc.telephone, psn.id, psn.prenom, psn.nom, psn.date_naissance, " +
+                "adr.id, adr.number, adr.road_name, adr.postal_code, adr.town, adr.country " +
+                "FROM CONTACT AS ctc " +
+                "INNER JOIN PERSON AS psn ON ctc.Person_ID = psn.Id " +
+                "INNER JOIN ADDRESS AS adr ON ctc.Address_ID = adr.Id";
 
             // Préparation de la commande
             SqlCommand command = new SqlCommand(request, connection);
@@ -182,12 +183,12 @@ namespace TpListContactClassAdoNET.Classes
             _connection = Connection.New;
             // Ajout de la personne en BDD
             int personId = base.Add();
-            //int addressId = ContactAddress.AddressId;
+            int addressId = ContactAddress.Add();
 
             if (personId > 0)
             {
                 // Prépartion de la commande
-                _request = "INSERT INTO TPContactList_Contact (Email, Telephone, IDContact, IDAddress) " +
+                _request = "INSERT INTO Contact (email, telephone, person_id, address_id) " +
                     "OUTPUT INSERTED.ID VALUES (@Email, @PhoneNumber, @PersonId, @AddressId)";
 
                 // Préparation de la commande
@@ -197,7 +198,7 @@ namespace TpListContactClassAdoNET.Classes
                 command.Parameters.Add(new SqlParameter("@Email", Email));
                 command.Parameters.Add(new SqlParameter("@PhoneNumber", PhoneNumber));
                 command.Parameters.Add(new SqlParameter("@PersonId", personId));
-                command.Parameters.Add(new SqlParameter("@AddressId", contactAddress.AddressId));
+                command.Parameters.Add(new SqlParameter("@AddressId", addressId));
 
                 // Execution de la commande
                 _connection.Open();
@@ -220,16 +221,16 @@ namespace TpListContactClassAdoNET.Classes
             _connection = Connection.New;
 
             // Prépartion de la commande
-            _request = "UPDATE TPContactList_Contact SET email=@Email, telephone=@PhoneNumber OUTPUT INSERTED.PERSON_ID WHERE id=@Id ";
+            _request = "UPDATE CONTACT SET email=@Email, telephone=@PhoneNumber OUTPUT INSERTED.PERSON_ID WHERE id=@Id ";
 
             // Préparation de la commande
             _command = new SqlCommand(_request, _connection);
 
             // Ajout des paramètres de la commande
             _command.Parameters.Add(new SqlParameter("@Email", Email));
-            _command.Parameters.Add(new SqlParameter("@PhoneNumber", PhoneNumber));            
+            _command.Parameters.Add(new SqlParameter("@PhoneNumber", PhoneNumber));
             _command.Parameters.Add(new SqlParameter("@Id", Id));
-            
+
 
             // Execution de la commande
             _connection.Open();
@@ -241,7 +242,31 @@ namespace TpListContactClassAdoNET.Classes
             _command.Dispose();
 
             // Prépartion de la commande
-            _request = "UPDATE TPContactList_Person SET prenom=@Prenom, nom=@Nom, datenaissance=@DateNaissance WHERE id=@PersonId ";
+            _request = "SELECT ADDRESS_ID FROM CONTACT WHERE id=@Id ";
+
+            // Préparation de la commande
+            _command = new SqlCommand(_request, _connection);
+
+            // Ajout des paramètres de la commande
+            _command.Parameters.Add(new SqlParameter("@Id", Id));
+
+            // Execution de la commande
+            SqlDataReader reader = _command.ExecuteReader();
+
+            int AddressId = 0;
+
+            if (reader.Read())
+            {
+                AddressId = (int)reader[0];
+            }
+
+            reader.Close();
+
+            // Libération de l'objet command
+            _command.Dispose();
+
+            // Prépartion de la commande
+            _request = "UPDATE PERSON SET prenom=@Prenom, nom=@Nom, date_naissance=@DateNaissance WHERE id=@PersonId ";
 
             // Préparation de la commande
             _command = new SqlCommand(_request, _connection);
@@ -251,6 +276,27 @@ namespace TpListContactClassAdoNET.Classes
             _command.Parameters.Add(new SqlParameter("@Nom", Lastname));
             _command.Parameters.Add(new SqlParameter("@DateNaissance", DateOfBirth));
             _command.Parameters.Add(new SqlParameter("@PersonId", personId));
+
+            // Execution de la commande
+            _command.ExecuteNonQuery();
+
+            // Libération de l'objet command
+            _command.Dispose();
+
+            // Prépartion de la commande
+            _request = "UPDATE ADDRESS SET number=@Number, road_name=@RoadName, postal_code=@PostalCode, town=@Town, Country=@Country WHERE id=@AddressId ";
+
+            // Préparation de la commande
+            _command = new SqlCommand(_request, _connection);
+
+            // Ajout des paramètres de la commande           
+            _command.Parameters.Add(new SqlParameter("@Number", ContactAddress.Number));
+            _command.Parameters.Add(new SqlParameter("@RoadName", ContactAddress.RoadName));
+            _command.Parameters.Add(new SqlParameter("@PostalCode", ContactAddress.PostalCode));
+            _command.Parameters.Add(new SqlParameter("@Town", ContactAddress.Town));
+            _command.Parameters.Add(new SqlParameter("@Country", ContactAddress.Country));
+            _command.Parameters.Add(new SqlParameter("@AddressId", AddressId));
+
 
             // Execution de la commande
             int NbLignes = _command.ExecuteNonQuery();
@@ -264,7 +310,7 @@ namespace TpListContactClassAdoNET.Classes
             return NbLignes > 0;
         }
 
-        public (bool,string) Delete()
+        public (bool, string) Delete()
         {
             bool result = false;
             Person person = new() { PersonId = PersonId };
@@ -275,14 +321,14 @@ namespace TpListContactClassAdoNET.Classes
             }
             catch (Exception e)
             {
-                return (false,e.Message);
+                return (false, e.Message);
             }
 
             // Création d'un instance de connection
             _connection = Connection.New;
 
             // Prépartion de la commande
-            _request = "DELETE TPContactList_Contact WHERE id=@Id";
+            _request = "DELETE CONTACT WHERE id=@Id";
 
             // Préparation de la commande
             _command = new SqlCommand(_request, _connection);
@@ -298,7 +344,7 @@ namespace TpListContactClassAdoNET.Classes
             _command.Dispose();
             _connection.Close();
 
-            return (nbLignes > 0 , nbLignes > 0 ? $"Le contact N°{Id} à été supprimé":"Erreur lors de la suppression du contact");
+            return (nbLignes > 0, nbLignes > 0 ? $"Le contact N°{Id} à été supprimé" : "Erreur lors de la suppression du contact");
         }
 
         public override string ToString()

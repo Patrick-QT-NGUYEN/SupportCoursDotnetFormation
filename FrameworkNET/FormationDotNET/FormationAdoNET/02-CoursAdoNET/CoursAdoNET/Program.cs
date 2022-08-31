@@ -1,6 +1,7 @@
 ﻿
 #region Cours Ado.NET Mode Connecté
 
+using CoursAdoNET.Classes;
 using Microsoft.Data.SqlClient;
 
 // Connexion à la base de Données
@@ -28,7 +29,7 @@ SqlConnection connection = new SqlConnection(connetionString);
 // Ouverture de la connection
 //connection.Open();
 
-// 1ere méthode pour executer notre commande => ExecuteNonQuery : Retourne lenombre de ligne impactée par notre commande ("sans retour")
+// 1ere méthode pour executer notre commande => ExecuteNonQuery : Retourne le nombre de ligne impactée par notre commande ("sans retour")
 //int nbLigne = command.ExecuteNonQuery();
 
 // 2eme méthode pour executer notre commande => execute.Scalar() : Retourne la valeur du champs ciblé dans la request
@@ -62,44 +63,58 @@ SqlConnection connection = new SqlConnection(connetionString);
 //Console.WriteLine(id>0?$"L'insertion a reussi, l'id de la personne est {id}":"Erreur lors de l'ajout dans la BDD");
 //Console.WriteLine(id>0?$"L'insertion a reussi, l'id de la personne est {id2}":"Erreur lors de l'ajout dans la BDD");
 
-int id = 7;
+//int id = 7;
 
 
-// Récupération des saisies utilisateur
-Console.Write("Veuillez saisir le nom de la personne : ");
-string nom = Console.ReadLine();
-Console.Write("Veuillez saisir le prénom de la personne : ");
-string prenom = Console.ReadLine();
-Console.Write("Veuillez saisir le mail de la personne : ");
-string email = Console.ReadLine();
-Console.Write("Veuillez saisir le téléphone de la personne : ");
-string telephone = Console.ReadLine();
+//// Récupération des saisies utilisateur
+//Console.Write("Veuillez saisir le nom de la personne : ");
+//string nom = Console.ReadLine();
+//Console.Write("Veuillez saisir le prénom de la personne : ");
+//string prenom = Console.ReadLine();
+//Console.Write("Veuillez saisir le mail de la personne : ");
+//string email = Console.ReadLine();
+//Console.Write("Veuillez saisir le téléphone de la personne : ");
+//string telephone = Console.ReadLine();
 
-// Rédaction de la request
-//string request = "INSERT INTO UTILISATEUR (nom,prenom,email,telephone) OUTPUT INSERTED.ID VALUES (@Titi, @Toto, @Tata, @Tutu)";
-string request = "UPDATE UTILISATEUR SET nom=@Titi ,prenom=@Toto,email=@Tata,telephone=@Tutu WHERE id=@Id";
+//// Rédaction de la request
+////string request = "INSERT INTO UTILISATEUR (nom,prenom,email,telephone) OUTPUT INSERTED.ID VALUES (@Titi, @Toto, @Tata, @Tutu)";
+//string request = "UPDATE UTILISATEUR SET nom=@Titi ,prenom=@Toto,email=@Tata,telephone=@Tutu WHERE id=@Id";
 
-// Création de notre objet command
-SqlCommand command = new SqlCommand(request, connection);
+//// Création de notre objet command
+//SqlCommand command = new SqlCommand(request, connection);
 
-// Ajout des paramètres de la commande
-command.Parameters.Add(new SqlParameter("@Titi", nom));
-command.Parameters.Add(new SqlParameter("@Toto", prenom));
-command.Parameters.Add(new SqlParameter("@Tata", email));
-command.Parameters.Add(new SqlParameter("@Tutu", telephone));
-command.Parameters.Add(new SqlParameter("@Id", id));
+//// Ajout des paramètres de la commande
+//command.Parameters.Add(new SqlParameter("@Titi", nom));
+//command.Parameters.Add(new SqlParameter("@Toto", prenom));
+//command.Parameters.Add(new SqlParameter("@Tata", email));
+//command.Parameters.Add(new SqlParameter("@Tutu", telephone));
+//command.Parameters.Add(new SqlParameter("@Id", id));
 
-// Execution de la commande
-connection.Open();
-int NbLigne = (int)command.ExecuteNonQuery();
-command.Dispose();
-connection.Close();
+//// Execution de la commande
+//connection.Open();
+//int NbLigne = (int)command.ExecuteNonQuery();
+//command.Dispose();
+//connection.Close();
 
-// Affichage du résultat
-//Console.WriteLine(id > 0 ? $"L'insertion a reussi, l'id de la personne est {id}" : "Erreur lors de l'ajout dans la BDD");
-Console.WriteLine(NbLigne > 0 ? $"Il y a eu {NbLigne} ligne modifié..." : "Erreur lors de la modification dans la BDD");
+//// Affichage du résultat
+////Console.WriteLine(id > 0 ? $"L'insertion a reussi, l'id de la personne est {id}" : "Erreur lors de l'ajout dans la BDD");
+//Console.WriteLine(NbLigne > 0 ? $"Il y a eu {NbLigne} ligne modifié..." : "Erreur lors de la modification dans la BDD");
 #endregion
 
+
+#region HashMDP
+// Récupération des saisies utilisateur
+Console.Write("Veuillez saisir le login : ");
+string login = Console.ReadLine();
+Console.Write("Veuillez saisir le password : ");
+string password = Console.ReadLine();
+
+
+Utilisateur u = new(login, password);
+u.Add();
+
+
+#endregion
 
 
 

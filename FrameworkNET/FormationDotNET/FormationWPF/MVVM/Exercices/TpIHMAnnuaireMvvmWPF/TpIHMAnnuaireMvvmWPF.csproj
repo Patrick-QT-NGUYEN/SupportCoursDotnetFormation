@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+  </ItemGroup>
+
+ 
+
+  <ItemGroup>
+    <Folder Include="Views\" />
+  </ItemGroup>
+
+ 
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\FormationAdoNET\03-TpAdoNET\TpListContactAdoNET\TpListContactClassAdoNET\TpListContactClassAdoNET.csproj" />
+  </ItemGroup>  
+
+</Project>

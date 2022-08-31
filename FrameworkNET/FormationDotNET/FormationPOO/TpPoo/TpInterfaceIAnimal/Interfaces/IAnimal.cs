@@ -4,8 +4,8 @@ namespace TpInterfaceIAnimal.Interfaces
 {
     interface IAnimal
     {
-        void Crier();
+        public void Crier();
 
-        void Manger();
+        public void Manger();
     }
 }

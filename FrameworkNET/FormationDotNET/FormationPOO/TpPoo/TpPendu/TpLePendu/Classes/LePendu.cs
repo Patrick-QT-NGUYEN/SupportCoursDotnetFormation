@@ -4,25 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using TpLePendu.Interfaces;
 
 namespace TpLePendu.Classes
 {
-    internal class LePendu
+    public class LePendu
     {
         #region Attributs
         private int nbEssai;
         private string masque;
         private string motAtrouve;
         private string userWord;
-        private GenerateurMots generateur;
+        //private GenerateurMots generateur;
+        private IGenerateur generateur;
         Regex regex = new Regex(@"^[a-zA-Zéèë]{1}$");
         #endregion
 
         #region Constructeurs
         public LePendu()
-        {
-            generateur = new();
+        {            
             NbEssai = 10;
+            generateur = new GenerateurMots();
             MotAtrouve = generateur.Generer();
             Masque = GenererMasque();
         }
