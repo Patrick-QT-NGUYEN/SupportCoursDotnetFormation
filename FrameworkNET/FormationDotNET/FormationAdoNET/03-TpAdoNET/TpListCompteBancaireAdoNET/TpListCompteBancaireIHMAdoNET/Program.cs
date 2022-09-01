@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using TpListCompteBancaireIHMAdoNET.Classes;
+
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+IHM ihm = new();
+ihm.Start();    

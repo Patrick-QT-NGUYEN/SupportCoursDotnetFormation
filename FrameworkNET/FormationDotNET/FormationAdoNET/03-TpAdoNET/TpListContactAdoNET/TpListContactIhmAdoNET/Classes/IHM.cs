@@ -5,7 +5,7 @@ namespace TpListContactIhmAdoNET.Classes
 {
     public class IHM
     {
-        ObservableCollection<Contact> Contacts;
+        List<Contact> Contacts;
 
         public IHM()
         {

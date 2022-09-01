@@ -10,6 +10,11 @@ namespace TpListCompteBancaireClassAdoNET.Classes
     {
         private decimal taux;
 
+        public CompteEpargne(decimal taux)
+        {
+            Taux = taux;
+        }
+
         public CompteEpargne(decimal solde, Client clientBanque, decimal taux) : base(solde, clientBanque)
         {
             Taux = taux;
@@ -20,7 +25,7 @@ namespace TpListCompteBancaireClassAdoNET.Classes
 
         public bool CalculInterets()
         {
-            return base.Depot(new Operation(Solde * Taux / 100));
+            return base.Depot(new Operation(this.Id, Solde * Taux / 100));
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿Drop TABLE client;
-Drop TABLE compte;
-Drop TABLE operation;
+﻿--Drop TABLE client;
+--Drop TABLE compte;
+--Drop TABLE operation;
 /*
  * Création table Utilisateur
  */

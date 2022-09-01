@@ -10,6 +10,11 @@ namespace TpListCompteBancaireClassAdoNET.Classes
     {
         private decimal coutOperation;
 
+        public ComptePayant(decimal coutOperation)
+        {
+            CoutOperation = coutOperation;  
+        }
+
         public ComptePayant(decimal solde, Client clientBanque,decimal coutOperation) :base( solde,  clientBanque)
         {
             CoutOperation = coutOperation;
@@ -23,7 +28,7 @@ namespace TpListCompteBancaireClassAdoNET.Classes
             {
                 if (base.Depot(operation))
                 {
-                    return base.Retrait(new Operation(CoutOperation * -1));
+                    return base.Retrait(new Operation( Id,CoutOperation * -1));
                 }
             }
             return false;
@@ -35,7 +40,7 @@ namespace TpListCompteBancaireClassAdoNET.Classes
             {
                 if (base.Retrait(operation))
                 {
-                    return base.Retrait(new Operation(CoutOperation * -1));
+                    return base.Retrait(new Operation( Id,CoutOperation * -1));
                 }
             }
             return false;

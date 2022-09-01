@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TpListCompteBancaireClassAdoNET.DAO;
 using TpListCompteBancaireClassAdoNET.Tools;
 
 namespace TpListCompteBancaireClassAdoNET.Classes
@@ -67,7 +68,12 @@ namespace TpListCompteBancaireClassAdoNET.Classes
             }
         }
 
+        private ClientDAO _clientDAO { get => new(); }
 
+        public int AjouterClient()
+        {
+            return _clientDAO.Create(this);
+        }
 
         public override string ToString()
         {

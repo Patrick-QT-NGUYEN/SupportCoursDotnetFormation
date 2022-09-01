@@ -4,7 +4,7 @@ using TpListCompteBancaireClassAdoNET.Tools;
 
 namespace TpListCompteBancaireClassAdoNET.DAO
 {
-    internal class ClientDAO : BaseDAO<Client>
+    public class ClientDAO : BaseDAO<Client>
     {
         public override int Create(Client element)
         {

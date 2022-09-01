@@ -29,7 +29,7 @@
                         <a asp-action="Details" asp-controller="Contact" asp-route-id="@c.Id" asp-route-add="false">
                             <input type="button" class="btn btn-primary" value="Détails" />
                         </a>
-                        <a asp-action="Edit" asp-controller="Contact" asp-route-id="@c.Id" asp-route-add="false">
+                        <a asp-action="Create" asp-controller="Contact" asp-route-id="@c.Id" asp-route-add="false">
                             <input type="button" class="btn btn-warning" value="Edit" />
                         </a>
                         <a asp-action="Delete" asp-controller="Contact" asp-route-id="@c.Id" asp-route-add="false">
@@ -41,6 +41,6 @@
         </tbody>
     </table>
     <a asp-action="Create" asp-controller="Contact" asp-route-add="false">
-        <input type="button" class="btn btn-success" value="Ajouter" />
+        <input type="button" class="btn btn-success form-control" value="Ajouter" />
     </a>
 </div>

@@ -1,3 +1,5 @@
 ﻿using TpListContactIhmAdoNET.Classes;
 
-new IHM().Start();
+
+IHM ihm = new();
+ihm.Start();

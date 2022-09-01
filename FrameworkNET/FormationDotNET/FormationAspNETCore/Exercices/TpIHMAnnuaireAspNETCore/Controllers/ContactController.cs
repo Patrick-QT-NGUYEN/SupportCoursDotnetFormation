@@ -28,22 +28,48 @@ namespace TpIHMAnnuaireAspNETCore.Controllers
         }
 
         // GET: ContactController/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            return View();
+            Contact c = new();
+            if (id != null && c.Get((int)id).Item1)
+            {
+                ViewData["Title"] = "Update Contacts";
+                c = c.Get((int)id).Item2;
+            }
+            else
+            {
+                ViewData["Title"] = "Add Contacts";
+                c.DateOfBirth = DateTime.Now;
+            }            
+            return View(c);
         }
 
         // POST: ContactController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Contact contact)
         {
             try
             {
+                if (contact.Id == 0)
+                {
+                    contact.Id = contact.Add();
+                    ViewBag.success = "Contact Ajouté";
+                    return View(contact);
+                }
+                else
+                {
+                    if (contact.Update())
+                    {
+                        ViewBag.success = "Contact mis à jour";
+                        return View(contact);
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
+                ViewBag.errors = ex.Message;
                 return View();
             }
         }
@@ -51,6 +77,7 @@ namespace TpIHMAnnuaireAspNETCore.Controllers
         // GET: ContactController/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewData["Title"] = "UpdateContact Contacts";
             return View();
         }
 
@@ -72,7 +99,16 @@ namespace TpIHMAnnuaireAspNETCore.Controllers
         // GET: ContactController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            // Création d'un cotact vide
+            Contact contact = new();
+            //contact.Id = id; 
+            contact = contact.Get(id).Item2;
+            if (contact.Delete().Item1)
+            {
+                ViewBag.Success = contact.Delete().Item2 ;
+            }
+
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: ContactController/Delete/5
@@ -82,6 +118,7 @@ namespace TpIHMAnnuaireAspNETCore.Controllers
         {
             try
             {
+
                 return RedirectToAction(nameof(Index));
             }
             catch

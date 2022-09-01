@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TpListCompteBancaireClassAdoNET.DAO
 {
-    internal abstract class BaseDAO<T>
+    public abstract class BaseDAO<T>
     {
         protected static SqlCommand _command;
         protected static SqlConnection _connection;
