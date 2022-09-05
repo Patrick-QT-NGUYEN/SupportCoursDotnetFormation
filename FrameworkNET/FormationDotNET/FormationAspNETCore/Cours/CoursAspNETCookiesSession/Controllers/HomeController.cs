@@ -18,7 +18,7 @@ namespace CoursAspNETCookiesSession.Controllers
         {
             // Création d'un objet a stocker dans les cookies
             List<string> liste = new List<string>() { "Toto", "Titi", "Tata"};
-            // Création des clé pour les cookies
+            // Exemple de clé pour les cookies
             HttpContext.Session.SetString("key-session", "value-session");
             // Envoie des valeurs
             HttpContext.Session.SetString("liste", JsonConvert.SerializeObject(liste));
@@ -32,8 +32,7 @@ namespace CoursAspNETCookiesSession.Controllers
             string chaineJson = HttpContext.Session.GetString("liste");
             List<string> liste = JsonConvert.DeserializeObject<List<string>>(chaineJson);
             ViewBag.Liste = liste;
-            return View();
-            
+            return View();            
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

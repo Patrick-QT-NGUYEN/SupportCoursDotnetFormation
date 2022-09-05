@@ -389,9 +389,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EXO_ListContacts", "..\Cour
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BanqueRepositoryClass", "FormationEntity\BanqueRepositoryClass\BanqueRepositoryClass.csproj", "{A7043BB0-4188-4951-8083-D9C45B00A740}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TpIHMBanqueHeritageAspNETCore", "FormationAspNETCore\Exercices\TpIHMBanqueHeritageAspNETCore\TpIHMBanqueHeritageAspNETCore.csproj", "{D92E4CD8-938B-4D48-A796-09AEB41E3A2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TpIHMBanqueHeritageAspNETCore", "FormationAspNETCore\Exercices\TpIHMBanqueHeritageAspNETCore\TpIHMBanqueHeritageAspNETCore.csproj", "{D92E4CD8-938B-4D48-A796-09AEB41E3A2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursAspNETCookiesSession", "FormationAspNETCore\Cours\CoursAspNETCookiesSession\CoursAspNETCookiesSession.csproj", "{44F061FC-A863-44DD-BCBE-40E0CCA0322F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursAspNETCookiesSession", "FormationAspNETCore\Cours\CoursAspNETCookiesSession\CoursAspNETCookiesSession.csproj", "{44F061FC-A863-44DD-BCBE-40E0CCA0322F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursApiAspNetCore", "FormationAspNETCore\Cours\CoursApiAspNetCore\CoursApiAspNetCore.csproj", "{0DF139D5-4DE3-4751-A571-DA2508C6932E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursJWTApiRestFull", "FormationAspNETCore\Cours\CoursJWTApiRestFull\CoursJWTApiRestFull.csproj", "{89F802E5-1510-478A-AF6D-9CD4EDBE51AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -799,6 +803,14 @@ Global
 		{44F061FC-A863-44DD-BCBE-40E0CCA0322F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44F061FC-A863-44DD-BCBE-40E0CCA0322F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44F061FC-A863-44DD-BCBE-40E0CCA0322F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DF139D5-4DE3-4751-A571-DA2508C6932E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DF139D5-4DE3-4751-A571-DA2508C6932E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DF139D5-4DE3-4751-A571-DA2508C6932E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DF139D5-4DE3-4751-A571-DA2508C6932E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89F802E5-1510-478A-AF6D-9CD4EDBE51AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89F802E5-1510-478A-AF6D-9CD4EDBE51AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89F802E5-1510-478A-AF6D-9CD4EDBE51AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89F802E5-1510-478A-AF6D-9CD4EDBE51AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -946,7 +958,9 @@ Global
 		{77B9BA5A-D4B7-4F0F-95C7-34D29F69D422} = {ED1EEDC5-B325-4586-9F6C-6023DA566A68}
 		{A7043BB0-4188-4951-8083-D9C45B00A740} = {ED1EEDC5-B325-4586-9F6C-6023DA566A68}
 		{D92E4CD8-938B-4D48-A796-09AEB41E3A2F} = {BE16401C-F040-4E6A-92F4-10BE349BE9F0}
-		{44F061FC-A863-44DD-BCBE-40E0CCA0322F} = {71E39391-66E4-4025-857C-5B8DFBC01B42}
+		{44F061FC-A863-44DD-BCBE-40E0CCA0322F} = {8964A62B-6EBD-4A6F-A21D-06F59D507C15}
+		{0DF139D5-4DE3-4751-A571-DA2508C6932E} = {8964A62B-6EBD-4A6F-A21D-06F59D507C15}
+		{89F802E5-1510-478A-AF6D-9CD4EDBE51AC} = {8964A62B-6EBD-4A6F-A21D-06F59D507C15}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {52E70217-1E4E-4382-B914-B9AADAA1EE88}

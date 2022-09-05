@@ -1,130 +1,85 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TpListContactAspNetCore_FrontOnly.Interface;
 using TpListContactClassAdoNET.Classes;
 
 namespace TpIHMAnnuaireAspNETCore.Controllers
 {
     public class ContactController : Controller
     {
-        // GET: ContactController
-        public ActionResult Index()
+        private IWebHostEnvironment _env;
+
+        private IUpload _upload;
+
+        public ContactController(IWebHostEnvironment env, IUpload upload)
         {
-            // Création d'une list de contact vide
-            List<Contact> contacts = new();
-            // Je rempli ma liste grace à la méthode GetAll qui nous retourne une liste de contact
-            contacts = Contact.GetAll();
-            // Je retourne la liste à la vue
+            _env = env;
+            _upload = upload;
+        }
+
+        // GET: ContactController
+        public ActionResult Index(string? search)
+        {
+            List<Contact> contacts = search == null ? Contact.GetAll() : Contact.SearchContact(search);
             return View(contacts);
         }
 
         // GET: ContactController/Details/5
         public ActionResult Details(int id)
         {
-            // Création d'un cotact vide
             Contact contact = new();
-            //contact.Id = id; 
             contact = contact.Get(id).Item2;
             return View(contact);
         }
 
         // GET: ContactController/Create
-        public ActionResult Create(int? id)
+        public IActionResult Form(int? id)
         {
-            Contact c = new();
-            if (id != null && c.Get((int)id).Item1)
+            Contact contact = new();
+            if (id != null)
             {
-                ViewData["Title"] = "Update Contacts";
-                c = c.Get((int)id).Item2;
+                ViewData["title"] = "Update Contact";
+                contact = contact.Get((int)id).Item2;
             }
             else
             {
-                ViewData["Title"] = "Add Contacts";
-                c.DateOfBirth = DateTime.Now;
-            }            
-            return View(c);
+                ViewData["title"] = "Add Contact";
+                contact.DateOfBirth = DateTime.Now;
+            }
+            return View(contact);
         }
 
         // POST: ContactController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Contact contact)
+        public IActionResult SubmitForm(Contact contact, IFormFile avatar)
         {
-            try
+            if (contact.Id > 0)
             {
-                if (contact.Id == 0)
-                {
-                    contact.Id = contact.Add();
-                    ViewBag.success = "Contact Ajouté";
-                    return View(contact);
-                }
-                else
-                {
-                    if (contact.Update())
-                    {
-                        ViewBag.success = "Contact mis à jour";
-                        return View(contact);
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                contact.Update();
             }
-            catch (Exception ex)
+            else
             {
-                ViewBag.errors = ex.Message;
-                return View();
+                contact.Url = _upload.Upload(avatar);
+                contact.Add();
             }
+            //on peut faire une redirection vers l'action index
+            return RedirectToAction("Index", "Contact");
         }
 
-        // GET: ContactController/Edit/5
-        public ActionResult Edit(int id)
+        public IActionResult ConfirmDelete(int id)
         {
-            ViewData["Title"] = "UpdateContact Contacts";
-            return View();
-        }
-
-        // POST: ContactController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            Contact contact = new();
+            contact = contact.Get(id).Item2;
+            return View(contact);
         }
 
         // GET: ContactController/Delete/5
         public ActionResult Delete(int id)
         {
-            // Création d'un cotact vide
             Contact contact = new();
-            //contact.Id = id; 
             contact = contact.Get(id).Item2;
-            if (contact.Delete().Item1)
-            {
-                ViewBag.Success = contact.Delete().Item2 ;
-            }
-
-            return RedirectToAction(nameof(Index));
-        }
-
-        // POST: ContactController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return View(contact != null ? contact.Delete().Item1 : false);
         }
     }
 }

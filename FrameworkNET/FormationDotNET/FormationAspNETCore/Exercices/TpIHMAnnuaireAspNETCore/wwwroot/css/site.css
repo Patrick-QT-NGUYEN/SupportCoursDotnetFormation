@@ -23,7 +23,30 @@ body {
     padding: 10px;
     margin-bottom: 10px;
 }
-
+header img {
+    width: 50px
+}
 .details {
     padding: 10px
+}
+
+.detailImg {
+    width: 250px;
+}
+
+.Line {
+    margin-top: 10px;
+}
+
+.Vignette {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #777777;
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+}
+
+.bouton-menu {
+    margin: 10px;
 }

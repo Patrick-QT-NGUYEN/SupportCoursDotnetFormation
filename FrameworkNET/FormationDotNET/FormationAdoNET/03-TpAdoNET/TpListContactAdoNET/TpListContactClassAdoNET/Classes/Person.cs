@@ -14,6 +14,7 @@ namespace TpListContactClassAdoNET.Classes
         private string firstname;
         private string lastname;
         private DateTime dateOfBirth;
+        private string url;
         string _request;
         SqlCommand _command;
         SqlConnection _connection;
@@ -24,17 +25,19 @@ namespace TpListContactClassAdoNET.Classes
 
         }
 
-        public Person(string firstname, string lastname, DateTime dateOfBirth) : this()
+        public Person(string firstname, string lastname, DateTime dateOfBirth, string url) : this()
         {
             Firstname = firstname;
             Lastname = lastname;
             DateOfBirth = dateOfBirth;
+            Url = url;
         }
 
         public int PersonId { get => personid; init => personid = value; }
         public string Firstname { get => firstname; set => firstname = value; }
         public string Lastname { get => lastname; set => lastname = value; }
         public DateTime DateOfBirth { get => dateOfBirth; set => dateOfBirth = value; }
+        public string Url { get => url; set => url = value; }
 
         public virtual Person Get(int id)
         {
@@ -44,14 +47,14 @@ namespace TpListContactClassAdoNET.Classes
             _connection = Connection.New;
 
             // Prépartion de la commande
-            _request = "SELECT (nom, prenom , date_naissance) FROM PERSON WHERE id=@Id";
+            _request = "SELECT (nom, prenom , date_naissance, url) FROM PERSON WHERE id=@Id";
 
             // Préparation de la commande
             _command = new SqlCommand(_request, _connection);
 
             // Ajout des paramètres de la commande
             _command.Parameters.Add(new SqlParameter("@Id", id));
-            
+
 
             // Ouverture de la connexion
             _connection.Open();
@@ -61,7 +64,7 @@ namespace TpListContactClassAdoNET.Classes
 
             if (_reader.Read())
             {
-                person = new Person() { PersonId = _reader.GetInt32(0), Firstname = _reader.GetString(2), Lastname = _reader.GetString(1), DateOfBirth = (DateTime)_reader[2] };
+                person = new Person() { PersonId = _reader.GetInt32(0), Firstname = _reader.GetString(2), Lastname = _reader.GetString(1), DateOfBirth = (DateTime)_reader[3], Url = _reader.GetString(4) };
             }
             _reader.Close();
 
@@ -80,7 +83,7 @@ namespace TpListContactClassAdoNET.Classes
             _connection = Connection.New;
 
             // Prépartion de la commande
-            _request = "INSERT INTO Person (nom, prenom, date_naissance) OUTPUT INSERTED.ID VALUES (@Firstname, @Lastname, @DateOfBirth)";
+            _request = "INSERT INTO Person (nom, prenom, date_naissance, url) OUTPUT INSERTED.ID VALUES (@Firstname, @Lastname, @DateOfBirth, @Url)";
 
             // Préparation de la commande
             _command = new SqlCommand(_request, _connection);
@@ -89,6 +92,7 @@ namespace TpListContactClassAdoNET.Classes
             _command.Parameters.Add(new SqlParameter("@Firstname", Firstname));
             _command.Parameters.Add(new SqlParameter("@Lastname", Lastname));
             _command.Parameters.Add(new SqlParameter("@DateOfBirth", DateOfBirth));
+            _command.Parameters.Add(new SqlParameter("@Url", Url));
 
             // Execution de la commande
             _connection.Open();
@@ -108,8 +112,8 @@ namespace TpListContactClassAdoNET.Classes
             _connection = Connection.New;
 
             // Prépartion de la commande
-            _request = "UPDATE PERSON SET nom = @Firstname, prenom = @Lastname, date_naissance = @DateOfBirth WHERE id=@PersonId";
-            
+            _request = "UPDATE PERSON SET nom = @Firstname, prenom = @Lastname, date_naissance = @DateOfBirth, url = @Url WHERE id=@PersonId";
+
 
             // Préparation de la commande
             _command = new SqlCommand(_request, _connection);
@@ -118,6 +122,7 @@ namespace TpListContactClassAdoNET.Classes
             _command.Parameters.Add(new SqlParameter("@Firstname", Firstname));
             _command.Parameters.Add(new SqlParameter("@Lastname", Lastname));
             _command.Parameters.Add(new SqlParameter("@DateOfBirth", DateOfBirth));
+            _command.Parameters.Add(new SqlParameter("@Url", Url));
             _command.Parameters.Add(new SqlParameter("@PersonId", PersonId));
 
             // Execution de la commande
@@ -161,7 +166,7 @@ namespace TpListContactClassAdoNET.Classes
 
         public override string ToString()
         {
-            return $"\tNom : {Lastname}\tPrénom : {Firstname} \t DateOfBirth : {DateOfBirth.Day}/{DateOfBirth.Month}/{DateOfBirth.Year}";
+            return $"Nom : {Lastname}\tPrénom : {Firstname} \nDateOfBirth : {DateOfBirth.Day}/{DateOfBirth.Month}/{DateOfBirth.Year}";
         }
     }
 }

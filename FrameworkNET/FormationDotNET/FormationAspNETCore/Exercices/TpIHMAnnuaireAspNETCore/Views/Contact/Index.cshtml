@@ -1,46 +1,45 @@
-﻿@{
-    ViewData["Title"] = "Liste des Contacts";
-}
-@using TpListContactClassAdoNET.Classes
+﻿@using TpListContactClassAdoNET.Classes
 @model List<Contact>
+@*@{
+    Layout = "_SpecialLayout";
+    }*@
 
-<div class="container">
-    <table class="table table-striped">
-        <!-- En-tete du tableau-->
-        <thead>
+<h1 class="row">
+    Accueil Annuaire
+</h1>
+<form class="row m-1" asp-controller="Contact" asp-action="Index" method="get">
+    <input type="text" name="search" placeholder="Votre recherche..." class="col-9 p-1" />
+    <button type="submit" class="btn btn-warning p-1 col-3">Rechercher</button>
+</form>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Téléphone</th>
+            <th scope="col">Email</th>        
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*@foreach (Contact c in ViewData["listeContacts"] as List<Contact>)*@
+        @*@foreach (Contact c in ViewBag.ListePersonnes)*@
+        @foreach (Contact c in Model)
+        {
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Lastname</th>
-                <th scope="col">Firstname</th>
-                <th scope="col">Email</th>
-                <th scope="col">Actions</th>
+                <th scope="row">@c.Id</th>
+                <td>@c.Firstname</td>
+                <td>@c.Lastname</td>
+                <td>@c.PhoneNumber</td>
+                <td>@c.Email</td>
+                <td>
+                    <a class="btn btn-secondary" asp-controller="Contact" asp-action="Details" asp-route-id="@c.Id">Details</a>
+                    <a class="btn btn-warning" asp-controller="Contact" asp-action="Form" asp-route-id="@c.Id">Modifier</a>
+                    <a class="btn btn-danger" asp-controller="Contact" asp-action="ConfirmDelete" asp-route-id="@c.Id">Supprimer</a>
+                </td>
             </tr>
-        </thead>
-        <!-- Partie Data du tableau -->
-        <tbody>
-            @foreach (Contact c in Model)
-            {
-                <tr>
-                    <th scope="row">@c.Id</th>
-                    <td>@c.Lastname</td>
-                    <td>@c.Firstname</td>
-                    <td>@c.Email</td>
-                    <td>
-                        <a asp-action="Details" asp-controller="Contact" asp-route-id="@c.Id" asp-route-add="false">
-                            <input type="button" class="btn btn-primary" value="Détails" />
-                        </a>
-                        <a asp-action="Create" asp-controller="Contact" asp-route-id="@c.Id" asp-route-add="false">
-                            <input type="button" class="btn btn-warning" value="Edit" />
-                        </a>
-                        <a asp-action="Delete" asp-controller="Contact" asp-route-id="@c.Id" asp-route-add="false">
-                            <input type="button" class="btn btn-danger" value="Delete" />
-                        </a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    <a asp-action="Create" asp-controller="Contact" asp-route-add="false">
-        <input type="button" class="btn btn-success form-control" value="Ajouter" />
-    </a>
-</div>
+        }
+
+    </tbody>
+</table>

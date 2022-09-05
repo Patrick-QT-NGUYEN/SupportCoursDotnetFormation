@@ -1,7 +1,12 @@
+using TpListContactAspNetCore_FrontOnly.Interface;
+using TpListContactAspNetCore_FrontOnly.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddTransient<IUpload, UploadService>();
 
 var app = builder.Build();
 
@@ -18,6 +23,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=contact}/{action=Index}/{id?}");
 
 app.Run();

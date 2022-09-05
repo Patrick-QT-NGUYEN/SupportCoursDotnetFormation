@@ -1,0 +1,68 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using TpListContactClassAdoNET.Classes
+@model Contact
+<h1 class="row">Formulaire Annuaire</h1>
+
+<form asp-controller="Contact" asp-action="SubmitForm" enctype="multipart/form-data" method="post">
+    <div class="col Vignette">
+        @if (@Model.Id > 0)
+        {
+            <h4>Update Contact Form</h4>
+        }
+        else
+        {
+            <h4>Add Contact Form</h4>
+        }
+        <div class="row m-1 justify-content-center align-items-center">
+            <input type="hidden" asp-for="@Model.Id" class="col-6 p-1 form-control" />
+        </div>
+        <div class="row m-1 justify-content-center align-items-center">
+            <input required type="text" asp-for="@Model.Lastname" class="col-6 p-1 form-control" placeholder="Nom : " />
+        </div>
+        <div class="row m-1 justify-content-center align-items-center">
+            <input required type="text" asp-for="@Model.Firstname" class="col-6 p-1 form-control" placeholder="Prénom  : " />
+        </div>
+        <div class="row m-1 justify-content-center align-items-center">
+            <input required asp-for="@Model.DateOfBirth" asp-format="{0:yyyy-MM-ddThh:mm}" class="col-6 p-1 form-control" />
+        </div>
+        <div class="row m-1 justify-content-center align-items-center">
+            <input required type="text" asp-for="@Model.PhoneNumber" class="col-6 p-1 form-control" placeholder="Téléphone : " />
+        </div>
+        <div class="row m-1 justify-content-center align-items-center">
+            <input required type="text" asp-for="@Model.Email" class="col-6 p-1 form-control" placeholder="Email : " />
+        </div>
+
+        <div class="row m-1 justify-content-center align-items-center">
+            <input required type="text" asp-for="@Model.ContactAddress.Number" class="col-6 p-1 form-control" placeholder="N° : " />
+        </div>
+        <div class="row m-1 justify-content-center align-items-center">
+            <input required type="text" asp-for="@Model.ContactAddress.RoadName" class="col-6 p-1 form-control" placeholder="Road name : " />
+        </div>
+        <div class="row m-1 justify-content-center align-items-center">
+            <input required type="text" asp-for="@Model.ContactAddress.PostalCode" class="col-6 p-1 form-control" placeholder="PostalCode : " />
+        </div>
+        <div class="row m-1 justify-content-center align-items-center">
+            <input required type="text" asp-for="@Model.ContactAddress.Town" class="col-6 p-1 form-control" placeholder="City : " />
+        </div>
+        <div class="row m-1 justify-content-center align-items-center">
+            <input required type="text" asp-for="@Model.ContactAddress.Country" class="col-6 p-1 form-control" placeholder="Country : " />
+        </div>
+        <div class="row m-1 justify-content-center align-items-center">
+            <input type="file" name="avatar" class="col form-control p-1" />
+        </div>
+        <div class="row m-1 justify-content-center align-items-center">
+            @if (@Model.Id > 0)
+            {
+                <button class="col-6 btn btn-success p-1 form-control" type="submit">Modifier</button>
+            }
+            else
+            {
+                <button class="col-6 btn btn-success p-1 form-control" type="submit">Ajouter</button>
+            }
+        </div>
+    </div>
+</form>

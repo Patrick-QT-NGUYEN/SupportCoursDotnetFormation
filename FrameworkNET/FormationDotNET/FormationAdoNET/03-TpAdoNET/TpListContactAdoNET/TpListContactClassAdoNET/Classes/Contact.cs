@@ -24,7 +24,7 @@ namespace TpListContactClassAdoNET.Classes
         {
             ContactAddress = new();
         }
-        public Contact(string firstname, string lastname, DateTime dateOfBirth, Address contactAddress, string phoneNumber, string email) : base(firstname, lastname, dateOfBirth)
+        public Contact(string firstname, string lastname, DateTime dateOfBirth, string url, Address contactAddress, string phoneNumber, string email) : base(firstname, lastname, dateOfBirth, url)
         {
             ContactAddress = contactAddress;
             PhoneNumber = phoneNumber;
@@ -62,76 +62,79 @@ namespace TpListContactClassAdoNET.Classes
             bool found = false;
 
             // Création d'un instance de connection
-            SqlConnection connection = Connection.New;
+            _connection = Connection.New;
 
             // Prépartion de la commande
-            string request = "SELECT ctc.id, ctc.email, ctc.telephone, psn.id, psn.prenom, psn.nom, psn.date_naissance, " +
-                "adr.id, adr.number, adr.road_name, adr.postal_code, adr.town, adr.country " +
-                "FROM CONTACT AS ctc " +
-                "INNER JOIN PERSON AS psn ON ctc.Person_ID = psn.Id " +
-                "INNER JOIN ADDRESS AS adr ON ctc.Address_ID = adr.Id " +
-                "WHERE ctc.id = @Id";
+            _request = "SELECT ctc.id, ctc.email, ctc.telephone, psn.id, psn.prenom, psn.nom, psn.date_naissance,psn.url, " +
+                 "adr.id, adr.number, adr.road_name, adr.postal_code, adr.town, adr.country " +
+                 "FROM CONTACT AS ctc " +
+                 "INNER JOIN PERSON AS psn ON ctc.Person_ID = psn.Id " +
+                 "INNER JOIN ADDRESS AS adr ON ctc.Address_ID = adr.Id " +
+                 "WHERE ctc.id = @Id";
 
             // Préparation de la commande
-            SqlCommand command = new SqlCommand(request, connection);
+            _command = new SqlCommand(_request, _connection);
 
             // Ajout des paramètres de la commande
-            command.Parameters.Add(new SqlParameter("@Id", id));
+            _command.Parameters.Add(new SqlParameter("@Id", id));
 
             // Ouverture de la connexion
-            connection.Open();
+            _connection.Open();
 
             // Execution de la commande
-            SqlDataReader reader = command.ExecuteReader();
+            _reader = _command.ExecuteReader();
 
-            if (reader.Read())
+            if (_reader.Read())
             {
                 contact = new Contact()
                 {
-                    Id = reader.GetInt32(0),
-                    Email = reader.GetString(1),
-                    PhoneNumber = reader.GetString(2),
-                    PersonId = reader.GetInt32(3),
-                    Firstname = reader.GetString(4),
-                    Lastname = reader.GetString(5),
-                    DateOfBirth = (DateTime)reader[6],
+                    Id = _reader.GetInt32(0),
+                    Email = _reader.GetString(1),
+                    PhoneNumber = _reader.GetString(2),
+                    PersonId = _reader.GetInt32(3),
+                    Firstname = _reader.GetString(4),
+                    Lastname = _reader.GetString(5),
+                    DateOfBirth = (DateTime)_reader[6],
+                    Url = _reader.GetString(7),
                     contactAddress = new Address()
                     {
-                        AddressId = reader.GetInt32(7),
-                        Number = reader.GetInt32(8),
-                        RoadName = reader.GetString(9),
-                        PostalCode = reader.GetInt32(10),
-                        Town = reader.GetString(11),
-                        Country = reader.GetString(12)
+                        AddressId = _reader.GetInt32(8),
+                        Number = _reader.GetInt32(9),
+                        RoadName = _reader.GetString(10),
+                        PostalCode = _reader.GetInt32(11),
+                        Town = _reader.GetString(12),
+                        Country = _reader.GetString(13)
                     }
                 };
                 found = true;
             }
-            reader.Close();
+            _reader.Close();
 
             // Libération de l'objet command
-            command.Dispose();
+            _command.Dispose();
 
             // Fermeture de la connection à la BDD
-            connection.Close();
+            _connection.Close();
 
             // Retour de la liste de contact
             return (found, contact);
         }
 
+        //public static ObservableCollection<Contact> GetAll()  // Avec WPF
         public static List<Contact> GetAll()
         {
+            //ObservableCollection<Contact> contacts = new ObservableCollection<Contact>();  // Avec WPF
             List<Contact> contacts = new List<Contact>();
 
             // Création d'un instance de connection
             SqlConnection connection = Connection.New;
 
             // Prépartion de la commande
-            string request = "SELECT ctc.id, ctc.email, ctc.telephone, psn.id, psn.prenom, psn.nom, psn.date_naissance, " +
-                "adr.id, adr.number, adr.road_name, adr.postal_code, adr.town, adr.country " +
-                "FROM CONTACT AS ctc " +
-                "INNER JOIN PERSON AS psn ON ctc.Person_ID = psn.Id " +
-                "INNER JOIN ADDRESS AS adr ON ctc.Address_ID = adr.Id";
+            string request = "SELECT ctc.id, ctc.email, ctc.telephone, psn.id, psn.prenom, psn.nom, psn.date_naissance,psn.url, " +
+                 "adr.id, adr.number, adr.road_name, adr.postal_code, adr.town, adr.country " +
+                 "FROM CONTACT AS ctc " +
+                 "INNER JOIN PERSON AS psn ON ctc.Person_ID = psn.Id " +
+                 "INNER JOIN ADDRESS AS adr ON ctc.Address_ID = adr.Id ";
 
             // Préparation de la commande
             SqlCommand command = new SqlCommand(request, connection);
@@ -153,14 +156,15 @@ namespace TpListContactClassAdoNET.Classes
                     Firstname = reader.GetString(4),
                     Lastname = reader.GetString(5),
                     DateOfBirth = (DateTime)reader[6],
-                    ContactAddress = new Address()
+                    Url = reader.GetString(7),
+                    contactAddress = new Address()
                     {
-                        AddressId = reader.GetInt32(7),
-                        Number = reader.GetInt32(8),
-                        RoadName = reader.GetString(9),
-                        PostalCode = reader.GetInt32(10),
-                        Town = reader.GetString(11),
-                        Country = reader.GetString(12)
+                        AddressId = reader.GetInt32(8),
+                        Number = reader.GetInt32(9),
+                        RoadName = reader.GetString(10),
+                        PostalCode = reader.GetInt32(11),
+                        Town = reader.GetString(12),
+                        Country = reader.GetString(13)
                     }
                 };
                 contacts.Add(contact);
@@ -192,20 +196,20 @@ namespace TpListContactClassAdoNET.Classes
                     "OUTPUT INSERTED.ID VALUES (@Email, @PhoneNumber, @PersonId, @AddressId)";
 
                 // Préparation de la commande
-                SqlCommand command = new SqlCommand(_request, _connection);
+                _command = new SqlCommand(_request, _connection);
 
                 // Ajout des paramètres de la commande
-                command.Parameters.Add(new SqlParameter("@Email", Email));
-                command.Parameters.Add(new SqlParameter("@PhoneNumber", PhoneNumber));
-                command.Parameters.Add(new SqlParameter("@PersonId", personId));
-                command.Parameters.Add(new SqlParameter("@AddressId", addressId));
+                _command.Parameters.Add(new SqlParameter("@Email", Email));
+                _command.Parameters.Add(new SqlParameter("@PhoneNumber", PhoneNumber));
+                _command.Parameters.Add(new SqlParameter("@PersonId", personId));
+                _command.Parameters.Add(new SqlParameter("@AddressId", addressId));
 
                 // Execution de la commande
                 _connection.Open();
-                int Id = (int)command.ExecuteScalar();
+                int Id = (int)_command.ExecuteScalar();
 
                 // Libération de l'objet command
-                command.Dispose();
+                _command.Dispose();
                 // Fermeture de la connection
                 _connection.Close();
 
@@ -213,6 +217,24 @@ namespace TpListContactClassAdoNET.Classes
             }
             else
                 return -1;
+        }
+
+        public static List<Contact> SearchContact(string search)
+        {
+            return Find(c => c.PhoneNumber.Contains(search) || c.Firstname.Contains(search) || c.Lastname.Contains(search));
+        }
+
+        public static List<Contact> Find(Func<Contact, bool> criteria)
+        {
+            List<Contact> contacts = new List<Contact>();
+            GetAll().ForEach(c =>
+            {
+                if (criteria(c))
+                {
+                    contacts.Add(c);
+                }
+            });
+            return contacts;
         }
 
         public override bool Update()
@@ -242,30 +264,6 @@ namespace TpListContactClassAdoNET.Classes
             _command.Dispose();
 
             // Prépartion de la commande
-            _request = "SELECT ADDRESS_ID FROM CONTACT WHERE id=@Id ";
-
-            // Préparation de la commande
-            _command = new SqlCommand(_request, _connection);
-
-            // Ajout des paramètres de la commande
-            _command.Parameters.Add(new SqlParameter("@Id", Id));
-
-            // Execution de la commande
-            SqlDataReader reader = _command.ExecuteReader();
-
-            int AddressId = 0;
-
-            if (reader.Read())
-            {
-                AddressId = (int)reader[0];
-            }
-
-            reader.Close();
-
-            // Libération de l'objet command
-            _command.Dispose();
-
-            // Prépartion de la commande
             _request = "UPDATE PERSON SET prenom=@Prenom, nom=@Nom, date_naissance=@DateNaissance WHERE id=@PersonId ";
 
             // Préparation de la commande
@@ -284,7 +282,7 @@ namespace TpListContactClassAdoNET.Classes
             _command.Dispose();
 
             // Prépartion de la commande
-            _request = "UPDATE ADDRESS SET number=@Number, road_name=@RoadName, postal_code=@PostalCode, town=@Town, Country=@Country WHERE id=@AddressId ";
+            _request = "UPDATE ADDRESS SET number=@Number, road_name=@RoadName, postal_code=@PostalCode, town=@Town, Country=@Country WHERE id=@PersonId ";
 
             // Préparation de la commande
             _command = new SqlCommand(_request, _connection);
@@ -295,8 +293,7 @@ namespace TpListContactClassAdoNET.Classes
             _command.Parameters.Add(new SqlParameter("@PostalCode", ContactAddress.PostalCode));
             _command.Parameters.Add(new SqlParameter("@Town", ContactAddress.Town));
             _command.Parameters.Add(new SqlParameter("@Country", ContactAddress.Country));
-            _command.Parameters.Add(new SqlParameter("@AddressId", AddressId));
-
+            _command.Parameters.Add(new SqlParameter("@PersonId", personId));
 
             // Execution de la commande
             int NbLignes = _command.ExecuteNonQuery();
@@ -312,7 +309,6 @@ namespace TpListContactClassAdoNET.Classes
 
         public (bool, string) Delete()
         {
-            bool result = false;
             Person person = new() { PersonId = PersonId };
             try
             {
@@ -349,7 +345,7 @@ namespace TpListContactClassAdoNET.Classes
 
         public override string ToString()
         {
-            return $"\n Contact N°{Id}\n{base.ToString()}\n\tAdresse : {ContactAddress} \n\tPhone : {PhoneNumber} \n\tEmail : {Email}\n";
+            return $"\n{base.ToString()}\nAdresse : {ContactAddress} \nPhone : {PhoneNumber} \nEmail : {Email}\n";
         }
     }
 }

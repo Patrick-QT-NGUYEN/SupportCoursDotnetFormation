@@ -7,14 +7,15 @@ CREATE TABLE PERSON
 	ID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	NOM VARCHAR(50) NOT NULL,
 	PRENOM VARCHAR(50) NOT NULL,
-	DATE_NAISSANCE DATETIME NOT NULL
+	DATE_NAISSANCE DATETIME NOT NULL,
+	URL VARCHAR(500) NULL
 )
 
 
-INSERT INTO [dbo].[PERSON] ( [NOM], [PRENOM], [DATE_NAISSANCE]) 
-VALUES ( N'Anthony', N'Di Persio', N'1990-06-20 00:00:00'),
-	   ( N'Ihab', N'Abadi', N'1987-09-11 00:00:00'),
-	   ( N'Marine', N'Abadi', N'1992-05-16 00:00:00')
+INSERT INTO [dbo].[PERSON] ( [NOM], [PRENOM], [DATE_NAISSANCE],[URL]) 
+VALUES ( N'Anthony', N'Di Persio', N'1990-06-20 00:00:00','images/Myavatar.png'),
+	   ( N'Ihab', N'Abadi', N'1987-09-11 00:00:00','images/Image1.jpg'),
+	   ( N'Marine', N'Abadi', N'1992-05-16 00:00:00','images/Image2.jpg')
 
 
 CREATE TABLE CONTACT
@@ -28,7 +29,7 @@ CREATE TABLE CONTACT
 
 
 INSERT INTO [dbo].[CONTACT] ( [EMAIL], [TELEPHONE], [PERSON_ID], [ADDRESS_ID])
-VALUES ( N'anthony@utopios.net', N'+3 6 41 52 63 98', 1, 1),
+VALUES ( N'anthony@utopios.net', N'+33 6 41 52 63 98', 1, 1),
 	   ( N'Ihab@utopios.net', N'+33 6 58 74 12 36', 2, 2),
 	   ( N'marine@utopios.net', N'+33 6 41 02 10 02', 3, 3)
 
@@ -45,8 +46,6 @@ CREATE TABLE ADDRESS
 
 
 INSERT INTO [dbo].[ADDRESS] ( [NUMBER], [ROAD_NAME], [POSTAL_CODE], [TOWN], [COUNTRY]) 
-VALUES ( 11, N'rue de la République', 59780, N'Willems', N'France'),
+VALUES ( 170, N'rue de la République', 59780, N'Willems', N'France'),
 	   ( 2, N'rue des Tilleuls', 59599, N'Tourcoing', N'France'),
 	   ( 2, N'rue des Tilleuls', 59599, N'Tourcoing', N'France')
-
-
