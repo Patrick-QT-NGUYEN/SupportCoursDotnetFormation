@@ -1,14 +1,13 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using CoursJWTApiRestFull.Interfaces;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
 namespace CoursJWTApiRestFull.Services
 {
-    public class TokenService
+    public class TokenService : ITokenServices
     {
-
-
         public string Authenticate(string username , string password)
         {
             // Logique métier pour verifier l'existance de l'utilisateur

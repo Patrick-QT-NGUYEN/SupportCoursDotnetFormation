@@ -1,4 +1,5 @@
 using CoursJWTApiRestFull.Services;
+using CoursJWTApiRestFull.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,15 +17,16 @@ namespace CoursJWTApiRestFull.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private TokenService _tokenService;
+        private ITokenServices _tokenService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, TokenService tokenService)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, ITokenServices tokenService)
         {
             _logger = logger;
             _tokenService = tokenService;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
+        [Authorize("user")]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
